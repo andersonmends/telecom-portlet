@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<style>
+.semBorda tr, .semBorda td {
+	border: none !important;
+	background: none !important;
+}
+
+.larguraPanelGrid {
+	width: 100px
+}
+
+.larguraInput {
+	width: 500px
+}
+
+.ui-datatable, .ui-inputText {
+	font-size: 10px !important;
+}
+</style>
+
+
+	</h:head>
+
+	<h:body>
+		<h:form>
+
+			<p:growl id="messages" autoUpdate="true" life="2000" />
+			<p:panelGrid id="pgridLog" columns="2" styleClass="semBorda"
+				style="width:1000px">
+
+				<h:outputText value="Fone" />
+				<p:inputText value="#{logBean.fone}" styleClass="larguraInput" />
+
+				<h:outputText value="Data Início"  />
+				<p:calendar value="#{logBean.dataInicio}"/>
+				
+				<h:outputText value="Data Final" />
+				<p:calendar value="#{logBean.dataFim}" />
+				
+				<h:outputText value="Usuário" />
+				<p:inputText value="#{logBean.usuario}" styleClass="larguraInput" />
+			</p:panelGrid>
+			
+			<p:panelGrid columns="2" style="margin-left:750px"
+				styleClass="semBorda">
+
+				<p:commandButton value="Consultar"
+					actionListener="#{logBean.consultarLog}" update="pgridLog"/>
+			</p:panelGrid>
+
+		</h:form>
+	</h:body>
+</f:view>
+
+
+
+

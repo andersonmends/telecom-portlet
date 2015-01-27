@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<style>
+.semBorda tr, .semBorda td {
+	border: none !important;
+	background: none !important;
+}
+
+.larguraInput {
+	width: 750px
+}
+
+.ui-datatable, .ui-inputText {
+	font-size: 10px !important;
+}
+</style>
+
+	</h:head>
+
+	<h:body>
+		<h:form>
+
+			<p:growl id="messages" autoUpdate="true" life="2000" />
+			<p:panelGrid id="pgridCadastro" columns="2" styleClass="semBorda"
+				style="width:900px">
+
+				<h:outputText value="Centro de Custo" />
+				<p:inputText
+					value="#{cadastroRamalBean.selectRamal.orgao.centroDeCustoOrgao}"
+					disabled="true" styleClass="larguraInput" >
+					
+				</p:inputText>
+
+				<h:outputText value="Cidade" />
+				<p:selectOneMenu value="#{cadastroRamalBean.selectCidade}"
+					style="width: 750px" required="true" requiredMessage="Cidade não preenchida">
+					<f:selectItem itemLabel="Selecione uma cidade"
+						itemValue="semSelecao" />
+					<f:selectItems value="#{cadastroRamalBean.cidades}" />
+					<p:ajax event="change"
+						listener="#{cadastroRamalBean.stateChangeListenerCidade}"
+						update="pgridCadastro" />
+					
+				</p:selectOneMenu>
+
+				<h:outputText value="Local" />
+				<p:selectOneMenu id="cbxOrgao" value="#{cadastroRamalBean.selectLocal}"
+					style="width: 750px" required="true" requiredMessage="Local não preenchida">
+					<f:selectItem itemLabel="Selecione um órgão" itemValue="semSelecao" />
+					<f:selectItems value="#{cadastroRamalBean.orgaos}" />
+					<p:ajax event="change"
+						listener="#{cadastroRamalBean.stateChangeListenerOrgao}"
+						update="pgridCadastro" />
+					<f:validateRequired />
+				</p:selectOneMenu>
+
+				<h:outputText value="Fone" />
+				<p:inputMask value="#{cadastroRamalBean.selectRamal.fone}"
+					styleClass="larguraInput"
+					validatorMessage="Fone deve ser preenchido com 10 números"
+					required="true" requiredMessage="Fone não preenchida"
+					mask="9999999999">					
+					<f:validateRegex pattern="[0-9]{10,10}"/>
+					
+				</p:inputMask>
+
+				<h:outputText value="Circuito" />
+				<p:inputText value="#{cadastroRamalBean.selectRamal.circuito}"
+					styleClass="larguraInput" required="true" requiredMessage="Circuito não preenchido">
+					<f:validateRequired />
+				</p:inputText>
+
+				<h:outputText value="Categoria" />
+				<p:selectOneMenu style="width: 750px"
+					value="#{cadastroRamalBean.selectRamal.categoria}" required="true" requiredMessage="Categoria não preenchida">
+					<f:selectItem itemLabel="Selecione um item" />
+					<f:selectItem itemLabel="1" itemValue="1" id="cat1" />
+					<f:selectItem itemLabel="2" itemValue="2" />
+					<f:selectItem itemLabel="3" itemValue="3" />
+					<f:selectItem itemLabel="4" itemValue="4" />
+					<f:selectItem itemLabel="5" itemValue="5" />
+					<f:selectItem itemLabel="6" itemValue="6" />
+					<f:selectItem itemLabel="7" itemValue="7" />
+					<f:selectItem itemLabel="8" itemValue="8" />
+					<f:selectItem itemLabel="9" itemValue="9" />
+					<f:selectItem itemLabel="10" itemValue="10" />
+					<f:selectItem itemLabel="11" itemValue="11" />
+					<f:validateRequired />
+				</p:selectOneMenu>
+
+				<h:outputText value="Tipo do Aparelho" />
+				<p:selectOneMenu style="width: 750px"
+					value="#{cadastroRamalBean.selectRamal.tipoAparelho}" required="true" requiredMessage="Tipo de aparelho não preenchido">
+					<f:selectItem itemLabel="Selecione um item" />
+					<f:selectItem itemLabel="A" itemValue="A" />
+					<f:selectItem itemLabel="D" itemValue="D" />
+					<f:selectItem itemLabel="IP" itemValue="IP" />
+					<f:validateRequired />
+				</p:selectOneMenu>
+
+				<h:outputText value="Usuário do Ramal" />
+				<p:inputText value="#{cadastroRamalBean.selectRamal.usuario}"
+					styleClass="larguraInput" required="true" requiredMessage="Usuário do ramal não preenchido">
+					<f:validateRequired />
+				</p:inputText>
+
+				<h:outputText value="Setor de Instalação" />
+				<p:inputText value="#{cadastroRamalBean.selectRamal.setorDeInstalacao}"
+					styleClass="larguraInput" required="true" requiredMessage="Setor de instalação não preenchido">
+					<f:validateRequired />
+				</p:inputText>
+
+				<h:outputText value="Tipo de Divulgação" />
+				<p:selectOneMenu style="width: 750px"
+					value="#{cadastroRamalBean.selectRamal.divulgacao}" required="true" requiredMessage="Tipo de divulgação não preenchido">
+					<f:selectItem itemLabel="Selecione um item" />
+					<f:selectItem itemLabel="Nao" itemValue="Nao" />
+					<f:selectItem itemLabel="Interno" itemValue="Interno" />
+					<f:selectItem itemLabel="Externo" itemValue="Externo" />
+					<f:validateRequired />
+				</p:selectOneMenu>
+				
+				<h:outputText value="Compartilha com Outro Setor " />
+				<p:inputText value="#{cadastroRamalBean.selectRamal.compartilhadoCom}"
+					styleClass="larguraInput">
+					<f:validateRequired />
+				</p:inputText>
+				
+				<h:outputText value="Fax" />
+				<p:selectOneMenu style="width: 750px"
+					value="#{cadastroRamalBean.selectRamal.fax}" required="true" requiredMessage="Fax não preenchido">
+					<f:selectItem itemLabel="Selecione um item" />
+					<f:selectItem itemLabel="Nao" itemValue="Nao" />
+					<f:selectItem itemLabel="Sim" itemValue="Sim" />
+					<f:validateRequired />
+				</p:selectOneMenu>
+				
+				<h:outputText value="Observações " />
+				<p:inputText value="#{cadastroRamalBean.selectRamal.observacoes}"
+					styleClass="larguraInput">
+					<f:validateRequired />
+				</p:inputText>
+
+
+			</p:panelGrid>
+
+			<br />
+
+			<p:panelGrid columns="2" style="margin-left:750px"
+				styleClass="semBorda">
+
+				<p:commandButton value="Cadastrar"
+					actionListener="#{cadastroRamalBean.cadastrarRamal}" update="pgridCadastro"/>
+			</p:panelGrid>
+
+
+		</h:form>
+	</h:body>
+</f:view>

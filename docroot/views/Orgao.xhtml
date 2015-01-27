@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<style>
+.semBorda tr, .semBorda td {
+	border: none !important;
+	background: none !important;
+}
+
+.larguraInput {
+	width: 700px
+}
+
+.ui-datatable, .ui-inputText {
+	font-size: 10px !important;
+}
+</style>
+
+
+	</h:head>
+
+	<h:body>
+		<h:form>
+
+			<p:growl id="messages" autoUpdate="true" life="2000" />
+			<p:panelGrid id="pgridEdit" columns="2" styleClass="semBorda"
+				style="width:850px">
+
+				<h:outputText value="Centro de Custo" />
+				<p:inputMask
+					value="#{cadastroOrgaoBean.selectOrgao.centroDeCustoOrgao}"
+					styleClass="larguraInput"
+					validatorMessage="Centro de custo deve ser preenchido com 10 números"
+					required="true" requiredMessage="Centro de custo não preenchida" mask="9999999999">
+
+					<f:validateRegex pattern="[0-9]{10,10}" />
+				</p:inputMask>
+
+				<h:outputText value="Cidade" />
+				<p:selectOneMenu value="#{cadastroOrgaoBean.selectOrgao.cidade}"
+					style="width: 700px" styleClass="larguraInput" required="true" requiredMessage="Cidade não selecionada">
+					<f:selectItem itemLabel="Selecione uma cidade"
+						itemValue="semSelecao" />
+					<f:selectItems value="#{cadastroOrgaoBean.cidades}" />
+					<p:ajax event="change"
+						listener="#{cadastroOrgaoBean.stateChangeListenerCidade}" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Local" />
+				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.nome}"
+					styleClass="larguraInput" required="true" requiredMessage="Local não preenchido" />
+
+				<h:outputText value="Complemento" />
+				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.complemento}"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Endereço" />
+				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.endereco}"
+					styleClass="larguraInput" required="true" requiredMessage="Endereço não preenchido" />
+
+				<h:outputText value="Bairro" />
+				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.bairro}"
+					styleClass="larguraInput" required="true" requiredMessage="Bairro não preenchido"/>
+
+				<h:outputText value="Número" />
+				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.numero}"
+					styleClass="larguraInput" required="true" requiredMessage="Número não preenchido" />
+
+				<h:outputText value="CEP" />
+				<p:inputMask value="#{cadastroOrgaoBean.selectOrgao.cep}"
+					styleClass="larguraInput" required="true" requiredMessage="CEP não preenchido" mask="99999-999" />
+
+				<h:outputText value="Região" />
+				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.regiao}"
+					styleClass="larguraInput"/>
+
+			</p:panelGrid>
+
+			<p:panelGrid columns="2" style="margin-left:450px"
+				styleClass="semBorda">
+
+				<p:commandButton value="Confimar"
+					actionListener="#{cadastroOrgaoBean.cadastrar}" update="pgridEdit" />
+			</p:panelGrid>
+
+		</h:form>
+	</h:body>
+</f:view>
+
+
+
+

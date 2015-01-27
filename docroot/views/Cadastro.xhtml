@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<f:view
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<style>
+.semBorda tr, .semBorda td {
+	border: none !important;
+	background: none !important;
+}
+
+.larguraPanelGrid {
+	width: 100px
+}
+
+.larguraInput {
+	width: 500px
+}
+
+.ui-datatable, .ui-inputText {
+	font-size: 10px !important;
+}
+</style>
+
+
+	</h:head>
+
+	<h:body>
+		<h:form>
+
+			<p:growl
+				id="messages"
+				autoUpdate="true"
+				life="2000" />
+			<p:panelGrid
+				id="pgridEdit"
+				columns="2"
+				styleClass="semBorda"
+				style="width:1000px"
+		>
+
+				<h:outputText value="Centro de Custo" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.orgao.centroDeCustoOrgao}"
+					disabled="true"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Cidade" />
+				<p:selectOneMenu
+					value="#{cadastroRamalBean.selectCidade}"
+					style="width: 500px">
+					<f:selectItem
+						itemLabel="Selecione uma cidade"
+						itemValue="semSelecao" />
+					<f:selectItems value="#{cadastroRamalBean.cidades}" />
+					<p:ajax
+						event="change"
+						listener="#{cadastroRamalBean.stateChangeListenerCidade}"
+						update="cbxOrgao" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Local" />
+				<p:selectOneMenu
+					id="cbxOrgao"
+					value="#{cadastroRamalBean.selectOrgao}"
+					style="width: 500px">
+					<f:selectItem
+						itemLabel="Selecione um órgão"
+						itemValue="semSelecao" />
+					<f:selectItems value="#{cadastroRamalBean.orgaos}" />
+					<p:ajax
+						event="change"
+						listener="#{cadastroRamalBean.stateChangeListenerOrgao}"
+						update="pgridEdit" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Complemento" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.orgao.complemento}"
+					disabled="true"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Endereço" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.orgao.endereco}"
+					disabled="true"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Bairro" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.orgao.bairro}"
+					disabled="true"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Número" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.orgao.numero}"
+					disabled="true"
+					styleClass="larguraInput" />
+
+				<h:outputText value="CEP" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.orgao.cep}"
+					disabled="true"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Região" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.orgao.regiao}"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Fone" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.fone}"
+					disabled="true"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Circuito" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.circuito}"
+					disabled="true"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Categoria" />
+				<p:selectOneMenu
+					style="width: 500px"
+					value="#{consultaBean.selectRamal.categoria}">
+					<f:selectItem itemLabel="#{consultaBean.selectRamal.categoria}" />
+					<f:selectItem
+						itemLabel="1"
+						itemValue="1"
+						id="cat1" />
+					<f:selectItem
+						itemLabel="2"
+						itemValue="2" />
+					<f:selectItem
+						itemLabel="3"
+						itemValue="3" />
+					<f:selectItem
+						itemLabel="4"
+						itemValue="4" />
+					<f:selectItem
+						itemLabel="5"
+						itemValue="5" />
+					<f:selectItem
+						itemLabel="6"
+						itemValue="6" />
+					<f:selectItem
+						itemLabel="7"
+						itemValue="7" />
+					<f:selectItem
+						itemLabel="8"
+						itemValue="8" />
+					<f:selectItem
+						itemLabel="9"
+						itemValue="9" />
+					<f:selectItem
+						itemLabel="10"
+						itemValue="10" />
+					<f:selectItem
+						itemLabel="11"
+						itemValue="11" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Tipo do Aparelho" />
+				<p:selectOneMenu
+					style="width: 500px"
+					value="#{consultaBean.selectRamal.tipoAparelho}">
+					<f:selectItem itemLabel="#{consultaBean.selectRamal.tipoAparelho}" />
+					<f:selectItem
+						itemLabel="A"
+						itemValue="A" />
+					<f:selectItem
+						itemLabel="D"
+						itemValue="D" />
+
+					<f:selectItem
+						itemLabel="IP"
+						itemValue="IP" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Usuário do Ramal" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.usuario}"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Setor de Instalação" />
+				<p:inputText
+					value="#{consultaBean.selectRamal.setorDeInstalacao}"
+					styleClass="larguraInput" />
+
+				<h:outputText value="Tipo de Divulgação" />
+				<p:selectOneMenu
+					style="width: 500px"
+					value="#{consultaBean.selectRamal.divulgacao}">
+					<f:selectItem itemLabel="#{consultaBean.selectRamal.divulgacao}" />
+					<f:selectItem
+						itemLabel="Nao"
+						itemValue="Nao" />
+					<f:selectItem
+						itemLabel="Interno"
+						itemValue="Interno" />
+					<f:selectItem
+						itemLabel="Externo"
+						itemValue="Externo" />
+				</p:selectOneMenu>
+
+			</p:panelGrid>
+
+		</h:form>
+	</h:body>
+</f:view>
+
+
+
+
