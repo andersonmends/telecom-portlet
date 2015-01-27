@@ -35,13 +35,24 @@
 			<p:panelGrid id="pgridLog" columns="2" styleClass="semBorda"
 				style="width:1000px">
 
+				<h:outputText value="Fone" />
+				<p:inputText value="#{logBean.fone}" styleClass="larguraInput" />
 
+				<h:outputText value="Data Início"  />
+				<p:calendar value="#{logBean.dataInicio}"/>
+				
+				<h:outputText value="Data Final" />
+				<p:calendar value="#{logBean.dataFim}" />
+				
+				<h:outputText value="Usuário" />
+				<p:inputText value="#{logBean.usuario}" styleClass="larguraInput" />
 			</p:panelGrid>
-
+			
 			<p:panelGrid columns="2" style="margin-left:750px"
 				styleClass="semBorda">
 
-
+				<p:commandButton value="Consultar"
+					actionListener="#{logBean.consultarLog}" update="pgridLog"/>
 			</p:panelGrid>
 
 		</h:form>

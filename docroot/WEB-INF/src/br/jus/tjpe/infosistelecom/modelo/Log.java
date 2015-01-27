@@ -10,8 +10,8 @@ public class Log {
 	private String categoriaOld;
 	private String tipoAparelhoNew;
 	private String tipoAparelhoOld;
-	private String divulgaçãoNew;
-	private String divulgaçãoOld;
+	private String divulgacaoNew;
+	private String divulgacaoOld;
 	private String localDeInstalacaoDiferenteDaOrigemNew;
 	private String localDeInstalacaoDiferenteDaOrigemOld;
 	private String compartilhadoComNew;
@@ -45,17 +45,17 @@ public class Log {
 	public void setTipoAparelhoOld(String tipoAparelhoOld) {
 		this.tipoAparelhoOld = tipoAparelhoOld;
 	}
-	public String getDivulgaçãoNew() {
-		return divulgaçãoNew;
+	public String getDivulgacaoNew() {
+		return divulgacaoNew;
 	}
-	public void setDivulgaçãoNew(String divulgaçãoNew) {
-		this.divulgaçãoNew = divulgaçãoNew;
+	public void setDivulgacaoNew(String divulgaçãoNew) {
+		this.divulgacaoNew = divulgaçãoNew;
 	}
-	public String getDivulgaçãoOld() {
-		return divulgaçãoOld;
+	public String getDivulgacaoOld() {
+		return divulgacaoOld;
 	}
-	public void setDivulgaçãoOld(String divulgaçãoOld) {
-		this.divulgaçãoOld = divulgaçãoOld;
+	public void setDivulgacaoOld(String divulgaçãoOld) {
+		this.divulgacaoOld = divulgaçãoOld;
 	}
 	public String getLocalDeInstalacaoDiferenteDaOrigemNew() {
 		return localDeInstalacaoDiferenteDaOrigemNew;

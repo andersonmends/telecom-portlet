@@ -100,7 +100,7 @@ public class ConsultaBean {
 
 		log.setCategoriaNew(selectRamal.getCategoria());
 		log.setCompartilhadoComNew(selectRamal.getCompartilhadoCom());
-		log.setDivulgaçãoNew(selectRamal.getDivulgacao());
+		log.setDivulgacaoNew(selectRamal.getDivulgacao());
 		log.setFaxNew(selectRamal.getFax());
 		log.setLocalDeInstalacaoDiferenteDaOrigemNew(selectRamal
 				.getLocalDeInstalacaoDiferenteDaOrigem());
@@ -164,7 +164,7 @@ public class ConsultaBean {
 		log.setUsuario(user.getFullName());
 		log.setCategoriaOld(ramalTemp.getCategoria());
 		log.setCompartilhadoComOld(ramalTemp.getCompartilhadoCom());
-		log.setDivulgaçãoOld(ramalTemp.getDivulgacao());
+		log.setDivulgacaoOld(ramalTemp.getDivulgacao());
 		log.setFaxOld(ramalTemp.getFax());
 		log.setLocalDeInstalacaoDiferenteDaOrigemOld(ramalTemp
 				.getLocalDeInstalacaoDiferenteDaOrigem());

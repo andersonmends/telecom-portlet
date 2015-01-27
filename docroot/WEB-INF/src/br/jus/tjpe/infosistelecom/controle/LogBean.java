@@ -1,13 +1,16 @@
 package br.jus.tjpe.infosistelecom.controle;
 
 
+import br.jus.tjpe.infosistelecom.dao.LogDao;
+import br.jus.tjpe.infosistelecom.factory.LogDaoFactory;
+import br.jus.tjpe.infosistelecom.modelo.Log;
+
 import javax.annotation.PostConstruct;
-
 import javax.faces.bean.ManagedBean;
-
 import javax.faces.bean.ViewScoped;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 @ManagedBean
@@ -18,6 +21,16 @@ public class LogBean {
 	private String usuario ="";
 	private Date dataInicio = new Date();
 	private Date dataFim= new Date();
+	private ArrayList<Log> listLog = new ArrayList<Log>();
+	
+
+	public ArrayList<Log> getListLog() {
+		return listLog;
+	}
+
+	public void setListLog(ArrayList<Log> listLog) {
+		this.listLog = listLog;
+	}
 
 	public String getFone() {
 		return fone;
@@ -66,7 +79,10 @@ public class LogBean {
 
 	@PostConstruct
 	public void init() {
-
+		
+		LogDao daoLog = LogDaoFactory.createLogDaoFactory();
+		listLog = daoLog.listarTudo();
+		
 	}
 
 }
