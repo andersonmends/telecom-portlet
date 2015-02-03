@@ -31,12 +31,19 @@
 	<h:body>
 		<h:form>
 
-			<p:growl id="messages" autoUpdate="true" life="2000" />
-			<p:panelGrid id="pgridLog" columns="2" styleClass="semBorda"
-				style="width:1000px">
+			<p:dataList value="#{logBean.listLog}" var="log">
+
+#{log.data}, #{log.foneRamal}
+				<p:growl id="messages" autoUpdate="true" life="2000" />
+				<p:panelGrid id="pgridLog" columns="2" styleClass="semBorda"
+					style="width:1000px">
+					
+					#{log.data}, #{log.data} #{log.foneRamal}
 
 
-			</p:panelGrid>
+				</p:panelGrid>
+
+			</p:dataList>
 
 			<p:panelGrid columns="2" style="margin-left:750px"
 				styleClass="semBorda">

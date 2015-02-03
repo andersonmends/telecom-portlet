@@ -19,9 +19,9 @@ public class LogBean {
 
 	private String fone = "";
 	private String usuario ="";
-	private Date dataInicio = new Date();
-	private Date dataFim= new Date();
-	private ArrayList<Log> listLog = new ArrayList<Log>();
+	private Date dataInicio;
+	private Date dataFim;
+	private ArrayList<Log> listLog;
 	
 
 	public ArrayList<Log> getListLog() {
@@ -65,12 +65,17 @@ public class LogBean {
 	}
 
 	public void consultarLog() {
-		// FacesContext facesContext = FacesContext.getCurrentInstance();
+		
 		try {
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-			String d = format.format(dataFim);
-			System.out.print(d);
+			String df = format.format(dataFim);
+			String di = format.format(dataInicio);
+			System.out.println(df);
+			System.out.println(di);
+			
+			LogDao daoLog = LogDaoFactory.createLogDaoFactory();
+			listLog = daoLog.pesquisa(fone, di, df, usuario);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -82,6 +87,9 @@ public class LogBean {
 		
 		LogDao daoLog = LogDaoFactory.createLogDaoFactory();
 		listLog = daoLog.listarTudo();
+		System.out.println(listLog.get(0).getData());
+		System.out.println(listLog.get(1).getData());
+		
 		
 	}
 

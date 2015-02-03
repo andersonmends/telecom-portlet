@@ -2,8 +2,8 @@
 
 <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
 	<portlet>
-		<portlet-name>telecom-consulta</portlet-name>
-		<display-name>Telecom-Consulta</display-name>
+		<portlet-name>telecom</portlet-name>
+		<display-name>Telecom</display-name>
 		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
 		<init-param>
 			<name>javax.portlet.faces.defaultViewId.view</name>
@@ -14,9 +14,9 @@
 			<mime-type>text/html</mime-type>
 		</supports>
 		<portlet-info>
-			<title>Telecom-Consulta</title>
-			<short-title>Telecom-Consulta</short-title>
-			<keywords>Telecom-Consulta</keywords>
+			<title>Telecom</title>
+			<short-title>Telecom</short-title>
+			<keywords>Telecom</keywords>
 		</portlet-info>
 		<security-role-ref>
 			<role-name>administrator</role-name>

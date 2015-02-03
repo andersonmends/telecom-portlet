@@ -12,16 +12,12 @@
 	background: none !important;
 }
 
-.larguraPanelGrid {
-	width: 100px
-}
-
-.larguraInput {
-	width: 500px
-}
-
 .ui-datatable, .ui-inputText {
 	font-size: 10px !important;
+}
+
+.hide-column-names table thead tr {
+	display: none;
 }
 </style>
 
@@ -31,23 +27,90 @@
 	<h:body>
 		<h:form>
 
+			<p:dataTable var="log" value="#{logBean.listLog}"
+				styleClass="hide-column-names" style="width:900px">
+				
+				<p:column style="width:120px">
+					<h:outputText value="Antes da Modificação"/>
+					<br />
+					<h:outputText value="Depois da Modificação"  />
+				</p:column>
+				
+				<p:column style="width:120px">
+					<h:outputText value="#{log.data}"/>
+					<br />
+					<h:outputText value="#{log.data}"  />
+				</p:column>
 
-			<p:dataTable value="#{logBean.listLog}" var="log">
+				<p:column style="width:100px">
 
-				<p:growl id="messages" autoUpdate="true" life="2000" />
-				<p:panelGrid id="pgridLog" columns="10" styleClass="semBorda"
-					style="width:1000px">
+					<h:outputText value="#{log.usuario}" />
+					<br />
+					<h:outputText value="#{log.usuario}" />
+				</p:column>
 
-					<p:column headerText="Data" width="120">
+				<p:column style="width:20px">
 
-						<h:outputText value="#{log.orgao.data}" />
-					</p:column>
+					<h:outputText value="#{log.categoriaOld}" />
+					<br />
+					<h:outputText value="#{log.categoriaNew}" />
 
+				</p:column>
 
-				</p:panelGrid>
+				<p:column style="width:20px">
+
+					<h:outputText value="#{log.tipoAparelhoOld}" />
+					<br />
+					<h:outputText value="#{log.tipoAparelhoNew}" />
+
+				</p:column>
+
+				<p:column style="width:50px">
+
+					<h:outputText value="#{log.divulgacaoOld}" />
+					<br />
+					<h:outputText value="#{log.divulgacaoNew}" />
+
+				</p:column>
+
+				<p:column style="width:100px">
+
+					<h:outputText value="#{log.localDeInstalacaoDiferenteDaOrigemOld}" />
+					<br />
+					<h:outputText value="#{log.localDeInstalacaoDiferenteDaOrigemNew}" />
+
+				</p:column>
+
+				<p:column style="width:100px">
+
+					<h:outputText value="#{log.compartilhadoComOld}" />
+					<br />
+					<h:outputText value="#{log.compartilhadoComNew}" />
+
+				</p:column>
+
+				<p:column style="width:20px">
+
+					<h:outputText value="#{log.faxOld}" />
+					<br />
+					<h:outputText value="#{log.faxNew}" />
+
+				</p:column>
+
+				<p:column style="width:150px">
+
+					<h:outputText value="#{log.observacoesOld}" />
+					<br />
+					<h:outputText value="#{log.observacoesNew}" />
+
+				</p:column>
+
+				
 
 			</p:dataTable>
+		</h:form>
 
+		<h:form>
 			<p:panelGrid columns="2" style="margin-left:750px"
 				styleClass="semBorda">
 

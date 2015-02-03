@@ -33,27 +33,120 @@
 
 			<p:growl id="messages" autoUpdate="true" life="2000" />
 			<p:panelGrid id="pgridLog" columns="2" styleClass="semBorda"
-				style="width:1000px">
+				style="width:900px">
 
 				<h:outputText value="Fone" />
-				<p:inputText value="#{logBean.fone}" styleClass="larguraInput" />
+				<p:inputMask value="#{logBean.fone}" styleClass="larguraInput"
+					validatorMessage="Fone deve ser preenchido com 10 números"
+					mask="9999999999">
+					<f:validateRegex pattern="[0-9]{10,10}" />
 
-				<h:outputText value="Data Início"  />
-				<p:calendar value="#{logBean.dataInicio}"/>
-				
+				</p:inputMask>
+
+				<h:outputText value="Data Início" />
+				<p:calendar value="#{logBean.dataInicio}" />
+
 				<h:outputText value="Data Final" />
 				<p:calendar value="#{logBean.dataFim}" />
-				
+
 				<h:outputText value="Usuário" />
 				<p:inputText value="#{logBean.usuario}" styleClass="larguraInput" />
 			</p:panelGrid>
-			
-			<p:panelGrid columns="2" style="margin-left:750px"
+
+			<br />
+
+
+			<p:panelGrid columns="2" style="margin-left:550px"
 				styleClass="semBorda">
 
 				<p:commandButton value="Consultar"
-					actionListener="#{logBean.consultarLog}" update="pgridLog"/>
+					actionListener="#{logBean.consultarLog}" update="pgridLog" />
 			</p:panelGrid>
+
+			<br />
+
+			<p:dataTable var="log" value="#{logBean.listLog}" style="width:900px">
+
+				<p:column style="width:120px">
+					<h:outputText value="Antes da Modificação" />
+					<br />
+					<h:outputText value="Depois da Modificação" />
+				</p:column>
+
+				<p:column style="width:120px">
+					<h:outputText value="#{log.data}" />
+					<br />
+					<h:outputText value="#{log.data}" />
+				</p:column>
+
+				<p:column style="width:100px">
+
+					<h:outputText value="#{log.usuario}" />
+					<br />
+					<h:outputText value="#{log.usuario}" />
+				</p:column>
+
+				<p:column style="width:20px">
+
+					<h:outputText value="#{log.categoriaOld}" />
+					<br />
+					<h:outputText value="#{log.categoriaNew}" />
+
+				</p:column>
+
+				<p:column style="width:20px">
+
+					<h:outputText value="#{log.tipoAparelhoOld}" />
+					<br />
+					<h:outputText value="#{log.tipoAparelhoNew}" />
+
+				</p:column>
+
+				<p:column style="width:50px">
+
+					<h:outputText value="#{log.divulgacaoOld}" />
+					<br />
+					<h:outputText value="#{log.divulgacaoNew}" />
+
+				</p:column>
+
+				<p:column style="width:100px">
+
+					<h:outputText value="#{log.localDeInstalacaoDiferenteDaOrigemOld}" />
+					<br />
+					<h:outputText value="#{log.localDeInstalacaoDiferenteDaOrigemNew}" />
+
+				</p:column>
+
+				<p:column style="width:100px">
+
+					<h:outputText value="#{log.compartilhadoComOld}" />
+					<br />
+					<h:outputText value="#{log.compartilhadoComNew}" />
+
+				</p:column>
+
+				<p:column style="width:20px">
+
+					<h:outputText value="#{log.faxOld}" />
+					<br />
+					<h:outputText value="#{log.faxNew}" />
+
+				</p:column>
+
+				<p:column style="width:150px">
+
+					<h:outputText value="#{log.observacoesOld}" />
+					<br />
+					<h:outputText value="#{log.observacoesNew}" />
+
+				</p:column>
+
+
+
+			</p:dataTable>
+			<br />
+
 
 		</h:form>
 	</h:body>

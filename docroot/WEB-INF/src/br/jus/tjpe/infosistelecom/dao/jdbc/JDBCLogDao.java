@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-
 import br.jus.tjpe.infosistelecom.dao.LogDao;
 import br.jus.tjpe.infosistelecom.factory.ConnectionFactory;
 import br.jus.tjpe.infosistelecom.modelo.Log;
@@ -25,7 +22,6 @@ public class JDBCLogDao implements LogDao {
 	@Override
 	public ArrayList<Log> listarTudo() {
 
-		
 		ArrayList<Log> logs = new ArrayList<Log>();
 
 		try {
@@ -38,20 +34,18 @@ public class JDBCLogDao implements LogDao {
 
 				Log log = new Log();
 				log.setID(Long.toString(rs.getLong("PK_LOG_ID")));
-				Date data = rs.getDate("LOG_DT_Data");
-				SimpleDateFormat formatDate = new SimpleDateFormat(
-						"yyyy-MM-dd HH:mm:ss");
-				String dataFormatada = formatDate.format(data);
-				log.setData(dataFormatada);
-				log.setID(rs.getString("LOG_NM_Usuario"));
+				log.setData(rs.getString("LOG_DT_Data"));
+				log.setUsuario(rs.getString("LOG_NM_Usuario"));
 				log.setCategoriaNew(rs.getString("LOG_ST_CategoriaNew"));
 				log.setCategoriaOld(rs.getString("LOG_ST_CategoriaOld"));
 				log.setTipoAparelhoNew(rs.getString("LOG_ST_TipoAparelhoNew"));
 				log.setTipoAparelhoOld(rs.getString("LOG_ST_TipoAparelhoOld"));
 				log.setDivulgacaoNew(rs.getString("LOG_ST_DivulgacaoNew"));
 				log.setDivulgacaoOld(rs.getString("LOG_ST_DivulgacaoOld"));
-				log.setCompartilhadoComNew(rs.getString("LOG_DS_CompartilhadoComNew"));
-				log.setCompartilhadoComOld(rs.getString("LOG_DS_CompartilhadoComOld"));
+				log.setCompartilhadoComNew(rs
+						.getString("LOG_DS_CompartilhadoComNew"));
+				log.setCompartilhadoComOld(rs
+						.getString("LOG_DS_CompartilhadoComOld"));
 				log.setFaxNew(rs.getString("LOG_ST_FaxNew"));
 				log.setFaxOld(rs.getString("LOG_ST_FaxOld"));
 				log.setObservacoesNew(rs.getString("LOG_DS_ObservacoesNew"));
@@ -65,8 +59,9 @@ public class JDBCLogDao implements LogDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
+		System.out.println("Consulta realizado com sucesso");
+
 		return logs;
 	}
 
@@ -115,6 +110,56 @@ public class JDBCLogDao implements LogDao {
 	public void recuperarLogPorUsuario(String usuario) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public ArrayList<Log> pesquisa(String ramal, String inicio, String fim, String usuario) {
+		ArrayList<Log> logs = new ArrayList<Log>();
+
+		try {
+			PreparedStatement prst = con
+					.prepareStatement("SELECT * FROM LOG WHERE FK_RAMAL_LOG_Fone like ? AND LOG_DT_Data BETWEEN ? AND ? AND LOG_NM_Usuario like ? ORDER BY LOG_DT_Data ASC");
+			prst.setString(1, "%"+ramal+"%");
+			prst.setString(2, inicio);
+			prst.setString(3, fim);
+			prst.setString(4, "%" +usuario+"%");
+
+			ResultSet rs = prst.executeQuery();
+
+			while (rs.next()) {
+
+				Log log = new Log();
+				log.setID(Long.toString(rs.getLong("PK_LOG_ID")));
+				log.setData(rs.getString("LOG_DT_Data"));
+				log.setUsuario(rs.getString("LOG_NM_Usuario"));
+				log.setCategoriaNew(rs.getString("LOG_ST_CategoriaNew"));
+				log.setCategoriaOld(rs.getString("LOG_ST_CategoriaOld"));
+				log.setTipoAparelhoNew(rs.getString("LOG_ST_TipoAparelhoNew"));
+				log.setTipoAparelhoOld(rs.getString("LOG_ST_TipoAparelhoOld"));
+				log.setDivulgacaoNew(rs.getString("LOG_ST_DivulgacaoNew"));
+				log.setDivulgacaoOld(rs.getString("LOG_ST_DivulgacaoOld"));
+				log.setCompartilhadoComNew(rs
+						.getString("LOG_DS_CompartilhadoComNew"));
+				log.setCompartilhadoComOld(rs
+						.getString("LOG_DS_CompartilhadoComOld"));
+				log.setFaxNew(rs.getString("LOG_ST_FaxNew"));
+				log.setFaxOld(rs.getString("LOG_ST_FaxOld"));
+				log.setObservacoesNew(rs.getString("LOG_DS_ObservacoesNew"));
+				log.setObservacoesOld(rs.getString("LOG_DS_ObservacoesOld"));
+				log.setFoneRamal(Long.toString(rs.getLong("FK_RAMAL_LOG_Fone")));
+				logs.add(log);
+				System.out.println(log.getData());
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println("Consulta realizado com sucesso");
+
+		return logs;
 	}
 
 }
