@@ -12,12 +12,8 @@
 	background: none !important;
 }
 
-.larguraPanelGrid {
-	width: 100px
-}
-
 .larguraInput {
-	width: 500px
+	width: 320px
 }
 
 .ui-datatable, .ui-inputText {
@@ -32,8 +28,8 @@
 		<h:form>
 
 			<p:growl id="messages" autoUpdate="true" life="2000" />
-			<p:panelGrid id="pgridLog" columns="2" styleClass="semBorda"
-				style="width:900px">
+			<p:panelGrid id="pgridLog" columns="4" styleClass="semBorda"
+				style="width:900px" >
 
 				<h:outputText value="Fone" />
 				<p:inputMask value="#{logBean.fone}" styleClass="larguraInput"
@@ -42,30 +38,32 @@
 					<f:validateRegex pattern="[0-9]{10,10}" />
 
 				</p:inputMask>
-
-				<h:outputText value="Data Início" />
-				<p:calendar value="#{logBean.dataInicio}" />
-
-				<h:outputText value="Data Final" />
-				<p:calendar value="#{logBean.dataFim}" />
-
+				
 				<h:outputText value="Usuário" />
 				<p:inputText value="#{logBean.usuario}" styleClass="larguraInput" />
+
+				<h:outputText value="Data Início" />
+				<p:calendar value="#{logBean.dataInicio}"/>
+
+				<h:outputText value="Data Final" />
+				<p:calendar value="#{logBean.dataFim}"/>
+
+				
 			</p:panelGrid>
 
 			<br />
 
 
-			<p:panelGrid columns="2" style="margin-left:550px"
+			<p:panelGrid columns="2" style="margin-left:770px"
 				styleClass="semBorda">
 
 				<p:commandButton value="Consultar"
-					actionListener="#{logBean.consultarLog}" update="pgridLog" />
+					actionListener="#{logBean.consultarLog}" update="pgridLog dtLog" />
 			</p:panelGrid>
 
 			<br />
 
-			<p:dataTable var="log" value="#{logBean.listLog}" style="width:900px">
+			<p:dataTable var="log" value="#{logBean.listLogConsulta}" style="width:890px" id="dtLog">
 
 				<p:column style="width:120px">
 					<h:outputText value="Antes da Modificação" />

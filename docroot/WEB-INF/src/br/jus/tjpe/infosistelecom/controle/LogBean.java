@@ -22,7 +22,16 @@ public class LogBean {
 	private Date dataInicio;
 	private Date dataFim;
 	private ArrayList<Log> listLog;
+	private ArrayList<Log> listLogConsulta;
 	
+
+	public ArrayList<Log> getListLogConsulta() {
+		return listLogConsulta;
+	}
+
+	public void setListLogConsulta(ArrayList<Log> listLogConsulta) {
+		this.listLogConsulta = listLogConsulta;
+	}
 
 	public ArrayList<Log> getListLog() {
 		return listLog;
@@ -69,13 +78,14 @@ public class LogBean {
 		try {
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-			String df = format.format(dataFim);
+			
 			String di = format.format(dataInicio);
+			String df = format.format(dataFim);
 			System.out.println(df);
 			System.out.println(di);
 			
 			LogDao daoLog = LogDaoFactory.createLogDaoFactory();
-			listLog = daoLog.pesquisa(fone, di, df, usuario);
+			listLogConsulta = daoLog.pesquisa(fone, di, df, usuario);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -86,10 +96,7 @@ public class LogBean {
 	public void init() {
 		
 		LogDao daoLog = LogDaoFactory.createLogDaoFactory();
-		listLog = daoLog.listarTudo();
-		System.out.println(listLog.get(0).getData());
-		System.out.println(listLog.get(1).getData());
-		
+		listLog = daoLog.listarTudo();	
 		
 	}
 

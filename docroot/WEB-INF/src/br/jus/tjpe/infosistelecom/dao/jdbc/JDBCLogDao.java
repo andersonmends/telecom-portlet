@@ -116,12 +116,15 @@ public class JDBCLogDao implements LogDao {
 	public ArrayList<Log> pesquisa(String ramal, String inicio, String fim, String usuario) {
 		ArrayList<Log> logs = new ArrayList<Log>();
 
+		System.out.println(inicio);
+		System.out.println(fim);
+		
 		try {
 			PreparedStatement prst = con
 					.prepareStatement("SELECT * FROM LOG WHERE FK_RAMAL_LOG_Fone like ? AND LOG_DT_Data BETWEEN ? AND ? AND LOG_NM_Usuario like ? ORDER BY LOG_DT_Data ASC");
 			prst.setString(1, "%"+ramal+"%");
-			prst.setString(2, inicio);
-			prst.setString(3, fim);
+			prst.setString(2, inicio +" 00:00:00");
+			prst.setString(3, fim+" 23:59:59");
 			prst.setString(4, "%" +usuario+"%");
 
 			ResultSet rs = prst.executeQuery();
@@ -148,7 +151,7 @@ public class JDBCLogDao implements LogDao {
 				log.setObservacoesOld(rs.getString("LOG_DS_ObservacoesOld"));
 				log.setFoneRamal(Long.toString(rs.getLong("FK_RAMAL_LOG_Fone")));
 				logs.add(log);
-				System.out.println(log.getData());
+				//System.out.println(log.getData());
 
 			}
 
