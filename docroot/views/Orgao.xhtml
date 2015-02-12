@@ -13,7 +13,7 @@
 }
 
 .larguraInput {
-	width: 700px
+	width: 750px
 }
 
 .ui-datatable, .ui-inputText {
@@ -29,7 +29,7 @@
 
 			<p:growl id="messages" autoUpdate="true" life="2000" />
 			<p:panelGrid id="pgridEdit" columns="2" styleClass="semBorda"
-				style="width:850px">
+				style="width:900px">
 
 				<h:outputText value="Centro de Custo" />
 				<p:inputMask
@@ -43,7 +43,7 @@
 
 				<h:outputText value="Cidade" />
 				<p:selectOneMenu value="#{cadastroOrgaoBean.selectOrgao.cidade}"
-					style="width: 700px" styleClass="larguraInput" required="true" requiredMessage="Cidade não selecionada">
+					style="width: 750px" styleClass="larguraInput" required="true" requiredMessage="Cidade não selecionada">
 					<f:selectItem itemLabel="Selecione uma cidade"
 						itemValue="semSelecao" />
 					<f:selectItems value="#{cadastroOrgaoBean.cidades}" />

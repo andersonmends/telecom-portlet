@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<f:view xmlns="http://www.w3.org/1999/xhtml"
+<f:view
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -26,30 +27,53 @@
 
 	<h:body>
 		<h:form>
+			<h5>10 Últimas Modificacões</h5>
+			<br />
 
-			<p:dataTable var="log" value="#{logBean.listLog}"
-				styleClass="hide-column-names" style="width:900px">
-				
-				<p:column style="width:120px">
-					<h:outputText value="Antes da Modificação"/>
+			<p:dataTable
+				var="log"
+				value="#{logBean.listLog}"
+				scrollable="true"
+				scrollWidth="1000"
+				id="dtLog">
+
+				<p:column
+					width="60"
+					headerText="Modificação">
+					<h:outputText value="Antes" />
 					<br />
-					<h:outputText value="Depois da Modificação"  />
-				</p:column>
-				
-				<p:column style="width:120px">
-					<h:outputText value="#{log.data}"/>
-					<br />
-					<h:outputText value="#{log.data}"  />
+					<h:outputText value="Depois" />
 				</p:column>
 
-				<p:column style="width:100px">
+				<p:column
+					width="100"
+					headerText="Data">
+					<h:outputText value="#{log.data}" />
+					<br />
+					<h:outputText value="#{log.data}" />
+				</p:column>
+
+				<p:column
+					width="55"
+					headerText="Ramal">
+
+					<h:outputText value="#{log.foneRamal}" />
+					<br />
+					<h:outputText value="#{log.foneRamal}" />
+				</p:column>
+
+				<p:column
+					width="50"
+					headerText="Usuário">
 
 					<h:outputText value="#{log.usuario}" />
 					<br />
 					<h:outputText value="#{log.usuario}" />
 				</p:column>
 
-				<p:column style="width:20px">
+				<p:column
+					width="15"
+					headerText="Cat.">
 
 					<h:outputText value="#{log.categoriaOld}" />
 					<br />
@@ -57,7 +81,9 @@
 
 				</p:column>
 
-				<p:column style="width:20px">
+				<p:column
+					width="50"
+					headerText="T. Aparelho">
 
 					<h:outputText value="#{log.tipoAparelhoOld}" />
 					<br />
@@ -65,7 +91,9 @@
 
 				</p:column>
 
-				<p:column style="width:50px">
+				<p:column
+					width="50"
+					headerText="Divulgação">
 
 					<h:outputText value="#{log.divulgacaoOld}" />
 					<br />
@@ -73,7 +101,9 @@
 
 				</p:column>
 
-				<p:column style="width:100px">
+				<p:column
+					width="60"
+					headerText="L. Dif. da Ori.">
 
 					<h:outputText value="#{log.localDeInstalacaoDiferenteDaOrigemOld}" />
 					<br />
@@ -81,7 +111,9 @@
 
 				</p:column>
 
-				<p:column style="width:100px">
+				<p:column
+					width="70"
+					headerText="Compartilhado">
 
 					<h:outputText value="#{log.compartilhadoComOld}" />
 					<br />
@@ -89,7 +121,9 @@
 
 				</p:column>
 
-				<p:column style="width:20px">
+				<p:column
+					width="20"
+					headerText="Fax">
 
 					<h:outputText value="#{log.faxOld}" />
 					<br />
@@ -97,7 +131,9 @@
 
 				</p:column>
 
-				<p:column style="width:150px">
+				<p:column
+					width="237"
+					headerText="Observações">
 
 					<h:outputText value="#{log.observacoesOld}" />
 					<br />
@@ -105,19 +141,38 @@
 
 				</p:column>
 
-				
+
 
 			</p:dataTable>
-		</h:form>
-
-		<h:form>
-			<p:panelGrid columns="2" style="margin-left:750px"
+			<br />
+			<p:panelGrid
+				columns="2"
 				styleClass="semBorda">
 
+				<h:commandLink>
+					<p:graphicImage value="/icons/pdf-icon.png" />
+					<p:dataExporter
+						type="pdf"
+						target="dtLog"
+						fileName="logs"
+						pageOnly="true" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage value="/icons/excel-icon.png" />
+					<p:dataExporter
+						type="excel"
+						target="dtLog"
+						fileName="logs"
+						pageOnly="true"
+						
+						 />
+				</h:commandLink>
 
 			</p:panelGrid>
-
 		</h:form>
+
+
 	</h:body>
 </f:view>
 

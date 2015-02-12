@@ -32,7 +32,7 @@ import org.primefaces.event.SelectEvent;
 public class ConsultaBean {
 
 	private ArrayList<Ramal> ramais;
-	private Ramal selectRamal;
+	private Ramal selectRamal = new Ramal();
 	private Ramal ramalTemp = new Ramal();
 	private Log log = new Log();
 
