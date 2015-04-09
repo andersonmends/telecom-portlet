@@ -105,8 +105,8 @@ public class RamalBean {
 
 		System.out.println(selectRamal.getCentroDeCusto());
 		System.out.println(selectRamal.getFone());
-		System.out.println(selectRamal.getTipoAparelho());
-		System.out.println(selectRamal.getCategoria());
+		System.out.println(selectRamal.getTipoRamal());
+		System.out.println(selectRamal.getCategoriaDiurna());
 		System.out.println(selectRamal.getCircuito());
 		System.out.println(selectRamal.getOrgao().getCidade());
 		System.out.println(selectRamal.getOrgao().getEndereco());

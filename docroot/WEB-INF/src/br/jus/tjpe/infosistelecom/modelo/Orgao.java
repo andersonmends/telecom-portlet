@@ -3,59 +3,57 @@ package br.jus.tjpe.infosistelecom.modelo;
 
 public class Orgao {
 	
-	private String centroDeCustoOrgao;
-	private String centroDeCustoOrgaoSuperior;
-	private String nome;
-	private String nomeOrgaoSuperior;
+	private String centroDeCusto;
+	private String localidade;
+	private String suborgao;
+	private String centroDeCustoAntigo;
+	private String polo;
 	private String cidade;
-	private String regiao;
-	private String complemento;
 	private String endereco;
-	private String cep;
-	private String numero;
-	private String bairro;
+	//private String complemento;
+	//private String cep;
+	//private String numero;
+	//private String bairro;
 	
 	public Orgao(){
 		
-		this.centroDeCustoOrgao = "";
-		this.centroDeCustoOrgaoSuperior = "";
-		this.nome = "";
-		this.nomeOrgaoSuperior = "";
+		this.centroDeCusto = "";
+		this.centroDeCustoAntigo = "";
+		this.localidade = "";
+		this.suborgao = "";
 		this.cidade = "";
-		this.regiao = "";
-		this.complemento = "";
+		this.polo = "";
+		//this.complemento = "";
 		this.endereco = "";
-		this.centroDeCustoOrgao = "";
-		this.cep = "";
-		this.numero = "";
-		this.bairro = "";
-		
+		this.centroDeCusto = "";
+		//this.cep = "";
+		//this.numero = "";
+		//this.bairro = "";	
 	}
 
-
-	public String getCentroDeCustoOrgao() {
-		return centroDeCustoOrgao;
+	public String getCentroDeCusto() {
+		return centroDeCusto;
 	}
-	public void setCentroDeCustoOrgao(String centroDeCustoOrgao) {
-		this.centroDeCustoOrgao = centroDeCustoOrgao;
+	public void setCentroDeCusto(String centroDeCustoOrgao) {
+		this.centroDeCusto = centroDeCustoOrgao;
 	}
-	public String getCentroDeCustoOrgaoSuperior() {
-		return centroDeCustoOrgaoSuperior;
+	public String getCentroDeCustoAntigo() {
+		return centroDeCustoAntigo;
 	}
-	public void setCentroDeCustoOrgaoSuperior(String centroDeCustoOrgaoSuperior) {
-		this.centroDeCustoOrgaoSuperior = centroDeCustoOrgaoSuperior;
+	public void setCentroDeCustoAntigo(String centroDeCustoOrgaoSuperior) {
+		this.centroDeCustoAntigo = centroDeCustoOrgaoSuperior;
 	}
-	public String getNome() {
-		return nome;
+	public String getLocalidade() {
+		return localidade;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setLocalidade(String nome) {
+		this.localidade = nome;
 	}
-	public String getNomeOrgaoSuperior() {
-		return nomeOrgaoSuperior;
+	public String getSubOrgao() {
+		return suborgao;
 	}
-	public void setNomeOrgaoSuperior(String nomeOrgaoSuperior) {
-		this.nomeOrgaoSuperior = nomeOrgaoSuperior;
+	public void setSubOrgao(String nomeOrgaoSuperior) {
+		this.suborgao = nomeOrgaoSuperior;
 	}
 	public String getCidade() {
 		return cidade;
@@ -63,43 +61,43 @@ public class Orgao {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public String getRegiao() {
-		return regiao;
+	public String getPolo() {
+		return polo;
 	}
-	public void setRegiao(String regiao) {
-		this.regiao = regiao;
+	public void setPolo(String regiao) {
+		this.polo = regiao;
 	}
-	public String getComplemento() {
-		return complemento;
-	}
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
+//	public String getComplemento() {
+//		return complemento;
+//	}
+//	public void setComplemento(String complemento) {
+//		this.complemento = complemento;
+//	}
 	public String getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public String getCep() {
-		return cep;
-	}
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-	public String getNumero() {
-		return numero;
-	}
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-	public String getBairro() {
-		return bairro;
-	}
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-	
+//	public String getCep() {
+//		return cep;
+//	}
+//	public void setCep(String cep) {
+//		this.cep = cep;
+//	}
+//	public String getNumero() {
+//		return numero;
+//	}
+//	public void setNumero(String numero) {
+//		this.numero = numero;
+//	}
+//	public String getBairro() {
+//		return bairro;
+//	}
+//	public void setBairro(String bairro) {
+//		this.bairro = bairro;
+//	}
+//	
 	
 
 }

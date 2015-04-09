@@ -36,8 +36,8 @@ public class JDBCLogDao implements LogDao {
 				log.setID(Long.toString(rs.getLong("PK_LOG_ID")));
 				log.setData(rs.getString("LOG_DT_Data"));
 				log.setUsuario(rs.getString("LOG_NM_Usuario"));
-				log.setCategoriaNew(rs.getString("LOG_ST_CategoriaNew"));
-				log.setCategoriaOld(rs.getString("LOG_ST_CategoriaOld"));
+				log.setCategoriaDiurnaNew(rs.getString("LOG_ST_CategoriaDiurnaNew"));
+				log.setCategoriaDiurnaOld(rs.getString("LOG_ST_CategoriaDiurnaOld"));
 				log.setTipoAparelhoNew(rs.getString("LOG_ST_TipoAparelhoNew"));
 				log.setTipoAparelhoOld(rs.getString("LOG_ST_TipoAparelhoOld"));
 				log.setDivulgacaoNew(rs.getString("LOG_ST_DivulgacaoNew"));
@@ -75,8 +75,8 @@ public class JDBCLogDao implements LogDao {
 			prst.setNull(1, 0);
 			prst.setString(2, l.getData());
 			prst.setString(3, l.getUsuario());
-			prst.setString(4, l.getCategoriaNew());
-			prst.setString(5, l.getCategoriaOld());
+			prst.setString(4, l.getCategoriaDiurnaNew());
+			prst.setString(5, l.getCategoriaDiurnaOld());
 			prst.setString(6, l.getTipoAparelhoNew());
 			prst.setString(7, l.getTipoAparelhoOld());
 			prst.setString(8, l.getDivulgacaoNew());
@@ -135,8 +135,8 @@ public class JDBCLogDao implements LogDao {
 				log.setID(Long.toString(rs.getLong("PK_LOG_ID")));
 				log.setData(rs.getString("LOG_DT_Data"));
 				log.setUsuario(rs.getString("LOG_NM_Usuario"));
-				log.setCategoriaNew(rs.getString("LOG_ST_CategoriaNew"));
-				log.setCategoriaOld(rs.getString("LOG_ST_CategoriaOld"));
+				log.setCategoriaDiurnaNew(rs.getString("LOG_ST_CategoriaDiurnaNew"));
+				log.setCategoriaDiurnaOld(rs.getString("LOG_ST_CategoriaDiurnaOld"));
 				log.setTipoAparelhoNew(rs.getString("LOG_ST_TipoAparelhoNew"));
 				log.setTipoAparelhoOld(rs.getString("LOG_ST_TipoAparelhoOld"));
 				log.setDivulgacaoNew(rs.getString("LOG_ST_DivulgacaoNew"));

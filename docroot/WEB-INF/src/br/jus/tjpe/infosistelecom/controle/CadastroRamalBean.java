@@ -90,7 +90,7 @@ public class CadastroRamalBean {
 
 			if (selectCidade.equals(orgao.getCidade())) {
 
-				this.orgaos.add(orgao.getNome());
+				this.orgaos.add(orgao.getLocalidade());
 			}
 		}
 
@@ -106,7 +106,7 @@ public class CadastroRamalBean {
 
 		for (Orgao orgao : orgaos) {
 			if (selectCidade.equals(orgao.getCidade())) {
-				orgaosTemp.add(orgao.getNome());
+				orgaosTemp.add(orgao.getLocalidade());
 
 			}
 		}
@@ -148,8 +148,8 @@ public class CadastroRamalBean {
 				new FacesMessage("Novo Ramal Cadastrado"));
 		RamalDao dao = RamalDaoFactory.createRamalDao();
 
-		System.out.println(selectRamal.getOrgao().getNome());
-		System.out.println(selectRamal.getOrgao().getBairro());
+		System.out.println(selectRamal.getOrgao().getLocalidade());
+		System.out.println(selectRamal.getOrgao().getEndereco());
 		dao.adicionar(selectRamal);
 
 		selectOrgao = new Orgao();

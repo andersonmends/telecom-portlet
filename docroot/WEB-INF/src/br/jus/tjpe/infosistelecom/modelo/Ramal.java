@@ -4,37 +4,72 @@ public class Ramal {
 
 	private String fone;
 	private String circuito;
-	private String usuario;
-	private String categoria;
-	private String tipoAparelho;
+	// private String usuario;
+	private String situacao;
+	private String categoriaDiurna;
+	private String categoriaNoturna;
+	private String tipoDeRamal;
 	private Orgao orgao;
-	private String setorDeInstalacao;
+	// private String setorDeInstalacao;
 	private String divulgacao;
-	private String localDeInstalacaoDiferenteDaOrigem;
+	private String nomenclatura;
+	private String dataDeAtivacao;
+	// private String localDeInstalacaoDiferenteDaOrigem;
 	private String compartilhadoCom;
-	private String fax;
+	// private String fax;
 	private String observacoes;
 	private long centroDeCusto;
-	
-	public Ramal(){
-		
+
+	public Ramal() {
+
 		this.fone = "";
 		this.circuito = "";
-		this.usuario = "";
-		this.categoria = "";
-		this.tipoAparelho = "";
+		// this.usuario = "";
+		this.categoriaDiurna = "";
+		this.tipoDeRamal = "";
 		this.orgao = new Orgao();
-		this.setorDeInstalacao = "";
+		// this.setorDeInstalacao = "";
 		this.divulgacao = "";
-		this.localDeInstalacaoDiferenteDaOrigem = "";
+		// this.localDeInstalacaoDiferenteDaOrigem = "";
 		this.compartilhadoCom = "";
-		this.fax = "";
+		// this.fax = "";
 		this.observacoes = "";
 		this.centroDeCusto = 0;
-		
-		
+
 	}
-	
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
+	}
+
+	public String getCategoriaNoturna() {
+		return categoriaNoturna;
+	}
+
+	public void setCategoriaNoturna(String categoriaNoturna) {
+		this.categoriaNoturna = categoriaNoturna;
+	}
+
+	public String getNomenclatura() {
+		return nomenclatura;
+	}
+
+	public void setNomenclatura(String nomeclatura) {
+		this.nomenclatura = nomeclatura;
+	}
+
+	public String getDataDeAtivacao() {
+		return dataDeAtivacao;
+	}
+
+	public void setDataDeAtivacao(String dataDeAtivacao) {
+		this.dataDeAtivacao = dataDeAtivacao;
+	}
+
 	public String getCompartilhadoCom() {
 		return compartilhadoCom;
 	}
@@ -43,13 +78,13 @@ public class Ramal {
 		this.compartilhadoCom = compartilhadoCom;
 	}
 
-	public String getFax() {
-		return fax;
-	}
-
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
+	// public String getFax() {
+	// return fax;
+	// }
+	//
+	// public void setFax(String fax) {
+	// this.fax = fax;
+	// }
 
 	public String getObservacoes() {
 		return observacoes;
@@ -59,25 +94,24 @@ public class Ramal {
 		this.observacoes = observacoes;
 	}
 
-	public String getLocalDeInstalacao() {
-		return setorDeInstalacao;
-	}
+	// public String getLocalDeInstalacao() {
+	// return setorDeInstalacao;
+	// }
+	//
+	// public void setLocalDeInstalacao(String localDeInstalacao) {
+	// this.setorDeInstalacao = localDeInstalacao;
+	// }
 
-	public void setLocalDeInstalacao(String localDeInstalacao) {
-		this.setorDeInstalacao = localDeInstalacao;
-	}
+	// public String getLocalDeInstalacaoDiferenteDaOrigem() {
+	// return localDeInstalacaoDiferenteDaOrigem;
+	// }
+	//
+	// public void setLocalDeInstalacaoDiferenteDaOrigem(
+	// String localDeInstalacaoDiferenteDaOrigem) {
+	// this.localDeInstalacaoDiferenteDaOrigem =
+	// localDeInstalacaoDiferenteDaOrigem;
+	// }
 
-	public String getLocalDeInstalacaoDiferenteDaOrigem() {
-		return localDeInstalacaoDiferenteDaOrigem;
-	}
-
-	public void setLocalDeInstalacaoDiferenteDaOrigem(
-			String localDeInstalacaoDiferenteDaOrigem) {
-		this.localDeInstalacaoDiferenteDaOrigem = localDeInstalacaoDiferenteDaOrigem;
-	}
-
-	
-	
 	public String getCircuito() {
 		return circuito;
 	}
@@ -85,13 +119,14 @@ public class Ramal {
 	public void setCircuito(String circuito) {
 		this.circuito = circuito;
 	}
-	public String getSetorDeInstalacao() {
-		return setorDeInstalacao;
-	}
 
-	public void setSetorDeInstalacao(String setorDeInstalacao) {
-		this.setorDeInstalacao = setorDeInstalacao;
-	}
+	// public String getSetorDeInstalacao() {
+	// return setorDeInstalacao;
+	// }
+	//
+	// public void setSetorDeInstalacao(String setorDeInstalacao) {
+	// this.setorDeInstalacao = setorDeInstalacao;
+	// }
 
 	public String getDivulgacao() {
 		return divulgacao;
@@ -101,20 +136,20 @@ public class Ramal {
 		this.divulgacao = divulgacao;
 	}
 
-	public String getTipoAparelho() {
-		return tipoAparelho;
+	public String getTipoRamal() {
+		return tipoDeRamal;
 	}
 
-	public void setTipoAparelho(String tipoAparelho) {
-		this.tipoAparelho = tipoAparelho;
+	public void setTipoRamal(String tipoAparelho) {
+		this.tipoDeRamal = tipoAparelho;
 	}
 
-	public String getCategoria() {
-		return categoria;
+	public String getCategoriaDiurna() {
+		return categoriaDiurna;
 	}
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setCategoriaDiurna(String categoria) {
+		this.categoriaDiurna = categoria;
 	}
 
 	public Orgao getOrgao() {
@@ -141,14 +176,12 @@ public class Ramal {
 		this.fone = numero;
 	}
 
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String nomeUsuario) {
-		this.usuario = nomeUsuario;
-	}
-	
-	
+	// public String getUsuario() {
+	// return usuario;
+	// }
+	//
+	// public void setUsuario(String nomeUsuario) {
+	// this.usuario = nomeUsuario;
+	// }
 
 }

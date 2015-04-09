@@ -96,17 +96,15 @@ public class ConsultaBean {
 		RamalDao daoRamal = RamalDaoFactory.createRamalDao();
 		daoRamal.atualizar(selectRamal);
 
-		log.setCategoriaNew(selectRamal.getCategoria());
+		log.setCategoriaDiurnaNew(selectRamal.getCategoriaDiurna());
 		log.setCompartilhadoComNew(selectRamal.getCompartilhadoCom());
 		log.setDivulgacaoNew(selectRamal.getDivulgacao());
-		log.setFaxNew(selectRamal.getFax());
-		log.setLocalDeInstalacaoDiferenteDaOrigemNew(selectRamal
-				.getLocalDeInstalacaoDiferenteDaOrigem());
 		log.setObservacoesNew(selectRamal.getObservacoes());
-		log.setTipoAparelhoNew(selectRamal.getTipoAparelho());
+		log.setTipoAparelhoNew(selectRamal.getTipoRamal());
 
 		LogDao daoLog = LogDaoFactory.createLogDaoFactory();
 		daoLog.adicionar(log);
+		this.init();
 
 	}
 
@@ -117,6 +115,22 @@ public class ConsultaBean {
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage("Ação Cancelada"));
 		ramalTemp = new Ramal();
+	}
+
+	public void remover() {
+
+		
+		RamalDao daoRamal = RamalDaoFactory.createRamalDao();
+		
+		daoRamal.remover(ramalTemp);
+		
+		System.out.println(ramalTemp.getCategoriaDiurna());
+		System.out.println(ramalTemp.getCircuito());
+		System.out.println(ramalTemp.getFone());
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage("Ramal Removido"));
+		// ramalTemp = new Ramal();
+		this.init();
 	}
 
 	public void onRowSelect(SelectEvent event) throws PortalException,
@@ -160,14 +174,12 @@ public class ConsultaBean {
 		log.setFoneRamal(ramalTemp.getFone());
 		log.setData(dataFormatada);
 		log.setUsuario(user.getFullName());
-		log.setCategoriaOld(ramalTemp.getCategoria());
+		log.setUsuario("hsgdhsdhj");
+		log.setCategoriaDiurnaOld(ramalTemp.getCategoriaDiurna());
 		log.setCompartilhadoComOld(ramalTemp.getCompartilhadoCom());
 		log.setDivulgacaoOld(ramalTemp.getDivulgacao());
-		log.setFaxOld(ramalTemp.getFax());
-		log.setLocalDeInstalacaoDiferenteDaOrigemOld(ramalTemp
-				.getLocalDeInstalacaoDiferenteDaOrigem());
 		log.setObservacoesOld(ramalTemp.getObservacoes());
-		log.setTipoAparelhoOld(ramalTemp.getTipoAparelho());
+		log.setTipoAparelhoOld(ramalTemp.getTipoRamal());
 
 	}
 

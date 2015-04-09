@@ -6,8 +6,10 @@ public class Log {
 	private String foneRamal;
 	private String data;
 	private String usuario;
-	private String categoriaNew;
-	private String categoriaOld;
+	private String categoriaDiurnaNew;
+	private String categoriaDiurnaOld;
+	private String categoriaNoturnaNew;
+	private String categoriaNoturnaOld;
 	private String tipoAparelhoNew;
 	private String tipoAparelhoOld;
 	private String divulgacaoNew;
@@ -21,20 +23,20 @@ public class Log {
 	private String observacoesNew;
 	private String observacoesOld;
 
-	public String getCategoriaNew() {
-		return categoriaNew;
+	public String getCategoriaDiurnaNew() {
+		return categoriaDiurnaNew;
 	}
 
-	public void setCategoriaNew(String categoriaNew) {
-		this.categoriaNew = categoriaNew;
+	public void setCategoriaDiurnaNew(String categoriaNew) {
+		this.categoriaDiurnaNew = categoriaNew;
 	}
 
-	public String getCategoriaOld() {
-		return categoriaOld;
+	public String getCategoriaDiurnaOld() {
+		return categoriaDiurnaOld;
 	}
 
-	public void setCategoriaOld(String categoriaOld) {
-		this.categoriaOld = categoriaOld;
+	public void setCategoriaDiurnaOld(String categoriaOld) {
+		this.categoriaDiurnaOld = categoriaOld;
 	}
 
 	public String getTipoAparelhoNew() {
@@ -165,6 +167,22 @@ public class Log {
 
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+	}
+	
+	public String getCategoriaNoturnaNew() {
+		return categoriaNoturnaNew;
+	}
+
+	public void setCategoriaNoturnaNew(String categoriaNoturnaNew) {
+		this.categoriaNoturnaNew = categoriaNoturnaNew;
+	}
+
+	public String getCategoriaNoturnaOld() {
+		return categoriaNoturnaOld;
+	}
+
+	public void setCategoriaNoturnaOld(String categoriaNoturnaOld) {
+		this.categoriaNoturnaOld = categoriaNoturnaOld;
 	}
 
 }

@@ -136,7 +136,7 @@ public class ComarcaBean {
 
 		for (Orgao comarca : comarcas) {
 			if (selectCidade.equals(comarca.getCidade())) {
-				orgaosTemp.add(comarca.getNome());
+				orgaosTemp.add(comarca.getLocalidade());
 			}
 		}
 
@@ -162,7 +162,7 @@ public class ComarcaBean {
 		for (Orgao comarca : comarcas) {
 
 			if (comarca.getCidade().equals(selectCidade)
-					&& comarca.getNome().equals(selectOrgao)) {
+					&& comarca.getLocalidade().equals(selectOrgao)) {
 				session.setAttribute("comarca", comarca);
 				mostraFieldset();
 			}

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<f:view xmlns="http://www.w3.org/1999/xhtml"
+<f:view
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -13,7 +14,7 @@
 }
 
 .larguraInput {
-	width: 320px
+	width: 147px
 }
 
 .ui-datatable, .ui-inputText {
@@ -27,64 +28,100 @@
 	<h:body>
 		<h:form>
 
-			<p:growl id="messages" autoUpdate="true" life="2000" />
-			<p:panelGrid id="pgridLog" columns="4" styleClass="semBorda"
-				style="width:900px" >
+			<p:growl
+				id="messages"
+				autoUpdate="true"
+				life="2000" />
+			<p:panelGrid
+				id="pgridLog"
+				columns="4"
+				styleClass="semBorda"
+				style="width:825px; margin-left: 75px">
 
 				<h:outputText value="Fone" />
-				<p:inputMask value="#{logBean.fone}" styleClass="larguraInput"
+				<p:inputMask
+					value="#{logBean.fone}"
+					styleClass="larguraInput"
 					validatorMessage="Fone deve ser preenchido com 10 números"
 					mask="9999999999">
 					<f:validateRegex pattern="[0-9]{10,10}" />
 
 				</p:inputMask>
-				
+
 				<h:outputText value="Usuário" />
-				<p:inputText value="#{logBean.usuario}" styleClass="larguraInput" />
+				<p:inputText
+					value="#{logBean.usuario}"
+					styleClass="larguraInput" />
 
 				<h:outputText value="Data Início" />
-				<p:calendar value="#{logBean.dataInicio}"/>
+				<p:calendar value="#{logBean.dataInicio}" />
 
 				<h:outputText value="Data Final" />
-				<p:calendar value="#{logBean.dataFim}"/>
+				<p:calendar value="#{logBean.dataFim}" />
 
-				
+
 			</p:panelGrid>
 
 			<br />
 
 
-			<p:panelGrid columns="2" style="margin-left:770px"
+			<p:panelGrid
+				columns="2"
+				style="margin-left:680px"
 				styleClass="semBorda">
 
-				<p:commandButton value="Consultar"
-					actionListener="#{logBean.consultarLog}" update="pgridLog dtLog" />
+				<p:commandButton
+					value="Consultar"
+					actionListener="#{logBean.consultarLog}"
+					update="pgridLog dtLog" />
 			</p:panelGrid>
 
 			<br />
 
-			<p:dataTable var="log" value="#{logBean.listLogConsulta}" style="width:890px" id="dtLog">
+			<p:dataTable
+				var="log"
+				value="#{logBean.listLogConsulta}"
+				scrollable="true"
+				scrollWidth="1000"
+				id="dtLog">
 
-				<p:column style="width:120px">
-					<h:outputText value="Antes da Modificação" />
+				<p:column
+					width="60"
+					headerText="Modificação">
+					<h:outputText value="Antes" />
 					<br />
-					<h:outputText value="Depois da Modificação" />
+					<h:outputText value="Depois" />
 				</p:column>
 
-				<p:column style="width:120px">
+				<p:column
+					width="100"
+					headerText="Data">
 					<h:outputText value="#{log.data}" />
 					<br />
 					<h:outputText value="#{log.data}" />
 				</p:column>
 
-				<p:column style="width:100px">
+				<p:column
+					width="55"
+					headerText="Ramal">
+
+					<h:outputText value="#{log.foneRamal}" />
+					<br />
+					<h:outputText value="#{log.foneRamal}" />
+				</p:column>
+
+				<p:column
+					width="50"
+					headerText="Usuário">
 
 					<h:outputText value="#{log.usuario}" />
 					<br />
 					<h:outputText value="#{log.usuario}" />
 				</p:column>
 
-				<p:column style="width:20px">
+				<p:column
+					width="15"
+					headerText="Cat.">
 
 					<h:outputText value="#{log.categoriaOld}" />
 					<br />
@@ -92,7 +129,9 @@
 
 				</p:column>
 
-				<p:column style="width:20px">
+				<p:column
+					width="50"
+					headerText="T. Aparelho">
 
 					<h:outputText value="#{log.tipoAparelhoOld}" />
 					<br />
@@ -100,7 +139,9 @@
 
 				</p:column>
 
-				<p:column style="width:50px">
+				<p:column
+					width="50"
+					headerText="Divulgação">
 
 					<h:outputText value="#{log.divulgacaoOld}" />
 					<br />
@@ -108,7 +149,9 @@
 
 				</p:column>
 
-				<p:column style="width:100px">
+				<p:column
+					width="60"
+					headerText="L. Dif. da Ori.">
 
 					<h:outputText value="#{log.localDeInstalacaoDiferenteDaOrigemOld}" />
 					<br />
@@ -116,7 +159,9 @@
 
 				</p:column>
 
-				<p:column style="width:100px">
+				<p:column
+					width="70"
+					headerText="Compartilhado">
 
 					<h:outputText value="#{log.compartilhadoComOld}" />
 					<br />
@@ -124,7 +169,9 @@
 
 				</p:column>
 
-				<p:column style="width:20px">
+				<p:column
+					width="20"
+					headerText="Fax">
 
 					<h:outputText value="#{log.faxOld}" />
 					<br />
@@ -132,7 +179,9 @@
 
 				</p:column>
 
-				<p:column style="width:150px">
+				<p:column
+					width="237"
+					headerText="Observações">
 
 					<h:outputText value="#{log.observacoesOld}" />
 					<br />
@@ -145,7 +194,27 @@
 			</p:dataTable>
 			<br />
 
+			<p:panelGrid
+				columns="2"
+				styleClass="semBorda">
 
+				<h:commandLink>
+					<p:graphicImage value="/icons/pdf-icon.png" />
+					<p:dataExporter
+						type="pdf"
+						target="dtLog"
+						fileName="mypdf" />
+				</h:commandLink>
+
+				<h:commandLink>
+					<p:graphicImage value="/icons/excel-icon.png" />
+					<p:dataExporter
+						type="pdf"
+						target="dtLog"
+						fileName="myexcel" />
+				</h:commandLink>
+
+			</p:panelGrid>
 		</h:form>
 	</h:body>
 </f:view>

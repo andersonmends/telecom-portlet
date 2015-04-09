@@ -83,7 +83,7 @@ public class CadastroBean {
 
 		for (Orgao orgao : orgaos) {
 			if (selectCidade.equals(orgao.getCidade())) {
-				orgaosTemp.add(orgao.getNome());
+				orgaosTemp.add(orgao.getLocalidade());
 			}
 		}
 
@@ -136,7 +136,7 @@ public class CadastroBean {
 
 				if (selectCidade.equals(orgao.getCidade())) {
 
-					this.orgaos.add(orgao.getNome());
+					this.orgaos.add(orgao.getLocalidade());
 				}
 			}
 		
