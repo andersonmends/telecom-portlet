@@ -25,15 +25,15 @@
 	</h:head>
 
 	<h:body>
-		<h:form>
+		<h:form >
 
 			<p:growl id="messages" autoUpdate="true" life="2000" />
 			<p:panelGrid id="pgridEdit" columns="2" styleClass="semBorda"
-				style="width:900px">
+				style="width:900px" rendered="false">
 
 				<h:outputText value="Centro de Custo" />
 				<p:inputMask
-					value="#{cadastroOrgaoBean.selectOrgao.centroDeCustoOrgao}"
+					value="#{cadastroOrgaoBean.selectOrgao.centroDeCusto}"
 					styleClass="larguraInput"
 					validatorMessage="Centro de custo deve ser preenchido com 10 números"
 					required="true" requiredMessage="Centro de custo não preenchida" mask="9999999999">
@@ -52,37 +52,24 @@
 				</p:selectOneMenu>
 
 				<h:outputText value="Local" />
-				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.nome}"
+				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.localidade}"
 					styleClass="larguraInput" required="true" requiredMessage="Local não preenchido" />
 
-				<h:outputText value="Complemento" />
-				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.complemento}"
-					styleClass="larguraInput" />
+			
 
 				<h:outputText value="Endereço" />
 				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.endereco}"
 					styleClass="larguraInput" required="true" requiredMessage="Endereço não preenchido" />
 
-				<h:outputText value="Bairro" />
-				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.bairro}"
-					styleClass="larguraInput" required="true" requiredMessage="Bairro não preenchido"/>
-
-				<h:outputText value="Número" />
-				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.numero}"
-					styleClass="larguraInput" required="true" requiredMessage="Número não preenchido" />
-
-				<h:outputText value="CEP" />
-				<p:inputMask value="#{cadastroOrgaoBean.selectOrgao.cep}"
-					styleClass="larguraInput" required="true" requiredMessage="CEP não preenchido" mask="99999-999" />
 
 				<h:outputText value="Região" />
-				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.regiao}"
+				<p:inputText value="#{cadastroOrgaoBean.selectOrgao.polo}"
 					styleClass="larguraInput"/>
 
-			</p:panelGrid>
+			</p:panelGrid >
 
 			<p:panelGrid columns="2" style="margin-left:450px"
-				styleClass="semBorda">
+				styleClass="semBorda"  rendered="false">
 
 				<p:commandButton value="Confimar"
 					actionListener="#{cadastroOrgaoBean.cadastrar}" update="pgridEdit" />

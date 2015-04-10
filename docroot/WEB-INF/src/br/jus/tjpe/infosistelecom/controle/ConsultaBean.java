@@ -31,7 +31,7 @@ import org.primefaces.event.SelectEvent;
 @SessionScoped
 public class ConsultaBean {
 
-	private ArrayList<Ramal> ramais;
+	private ArrayList<Ramal> ramais = new ArrayList<Ramal>();
 	private Ramal selectRamal = new Ramal();
 	private Ramal ramalTemp = new Ramal();
 	private Log log = new Log();
@@ -54,10 +54,11 @@ public class ConsultaBean {
 
 	@PostConstruct
 	public void init() {
-
+		
+		ramais = new ArrayList<Ramal>();
 		RamalDao dao = RamalDaoFactory.createRamalDao();
 		ramais = dao.listarTudo();
-
+		//ramais = null;
 		// recupera a hora de acordo com o servidor TOMCAT, porém não sei o
 		// motivo está retornando a hora de fuso horário (timezone) diferente
 		Date data = new Date();
@@ -97,10 +98,13 @@ public class ConsultaBean {
 		daoRamal.atualizar(selectRamal);
 
 		log.setCategoriaDiurnaNew(selectRamal.getCategoriaDiurna());
-		log.setCompartilhadoComNew(selectRamal.getCompartilhadoCom());
+		log.setCategoriaNoturnaNew(selectRamal.getCategoriaNoturna());
+		log.setTipoDeRamalNew(selectRamal.getTipoDeRamal());
 		log.setDivulgacaoNew(selectRamal.getDivulgacao());
+		log.setNomenclaturaNew(selectRamal.getNomenclatura());
+		log.setCompartilhadoComNew(selectRamal.getCompartilhadoCom());
 		log.setObservacoesNew(selectRamal.getObservacoes());
-		log.setTipoAparelhoNew(selectRamal.getTipoRamal());
+		
 
 		LogDao daoLog = LogDaoFactory.createLogDaoFactory();
 		daoLog.adicionar(log);
@@ -174,12 +178,13 @@ public class ConsultaBean {
 		log.setFoneRamal(ramalTemp.getFone());
 		log.setData(dataFormatada);
 		log.setUsuario(user.getFullName());
-		log.setUsuario("hsgdhsdhj");
 		log.setCategoriaDiurnaOld(ramalTemp.getCategoriaDiurna());
-		log.setCompartilhadoComOld(ramalTemp.getCompartilhadoCom());
+		log.setCategoriaNoturnaOld(ramalTemp.getCategoriaNoturna());
+		log.setTipoDeRamalOld(ramalTemp.getTipoDeRamal());
 		log.setDivulgacaoOld(ramalTemp.getDivulgacao());
+		log.setCompartilhadoComOld(ramalTemp.getCompartilhadoCom());
 		log.setObservacoesOld(ramalTemp.getObservacoes());
-		log.setTipoAparelhoOld(ramalTemp.getTipoRamal());
+		
 
 	}
 

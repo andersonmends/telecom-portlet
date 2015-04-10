@@ -78,15 +78,15 @@
 
 			<br />
 
-			<p:dataTable
+		<p:dataTable
 				var="log"
-				value="#{logBean.listLogConsulta}"
+				value="#{logBean.listLog}"
 				scrollable="true"
 				scrollWidth="1000"
 				id="dtLog">
 
 				<p:column
-					width="60"
+					width="55"
 					headerText="Modificação">
 					<h:outputText value="Antes" />
 					<br />
@@ -120,22 +120,32 @@
 				</p:column>
 
 				<p:column
-					width="15"
-					headerText="Cat.">
+					width="25"
+					headerText="Cat. D">
 
-					<h:outputText value="#{log.categoriaOld}" />
+					<h:outputText value="#{log.categoriaDiurnaOld}" />
 					<br />
-					<h:outputText value="#{log.categoriaNew}" />
+					<h:outputText value="#{log.categoriaDiurnaNew}" />
+
+				</p:column>
+				
+				<p:column
+					width="25"
+					headerText="Cat. N">
+
+					<h:outputText value="#{log.categoriaNoturnaOld}" />
+					<br />
+					<h:outputText value="#{log.categoriaNoturnaNew}" />
 
 				</p:column>
 
 				<p:column
 					width="50"
-					headerText="T. Aparelho">
+					headerText="T. Ramal">
 
-					<h:outputText value="#{log.tipoAparelhoOld}" />
+					<h:outputText value="#{log.tipoDeRamalOld}" />
 					<br />
-					<h:outputText value="#{log.tipoAparelhoNew}" />
+					<h:outputText value="#{log.tipoDeRamalNew}" />
 
 				</p:column>
 
@@ -148,14 +158,14 @@
 					<h:outputText value="#{log.divulgacaoNew}" />
 
 				</p:column>
-
+				
 				<p:column
 					width="60"
-					headerText="L. Dif. da Ori.">
+					headerText="Nomenclatura">
 
-					<h:outputText value="#{log.localDeInstalacaoDiferenteDaOrigemOld}" />
+					<h:outputText value="#{log.nomenclaturaOld}" />
 					<br />
-					<h:outputText value="#{log.localDeInstalacaoDiferenteDaOrigemNew}" />
+					<h:outputText value="#{log.nomenclaturaNew}" />
 
 				</p:column>
 
@@ -170,17 +180,7 @@
 				</p:column>
 
 				<p:column
-					width="20"
-					headerText="Fax">
-
-					<h:outputText value="#{log.faxOld}" />
-					<br />
-					<h:outputText value="#{log.faxNew}" />
-
-				</p:column>
-
-				<p:column
-					width="237"
+					width="228"
 					headerText="Observações">
 
 					<h:outputText value="#{log.observacoesOld}" />
@@ -192,6 +192,7 @@
 
 
 			</p:dataTable>
+
 			<br />
 
 			<p:panelGrid

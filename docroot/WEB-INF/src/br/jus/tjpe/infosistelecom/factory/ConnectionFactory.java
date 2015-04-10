@@ -12,8 +12,8 @@ public class ConnectionFactory {
 			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 			System.out.println("SUCESSO");
 
-			//return DriverManager.getConnection("jdbc:mysql://192.168.251.19/db_infosistele", "sistelecom", "123456");//base dados no servidor do Recife
-			return DriverManager.getConnection("jdbc:mysql://172.28.50.4/db_infosistele_produ", "root", "(C15c*)"); // base da dados em uma VM no servidor em Garanhuns
+			return DriverManager.getConnection("jdbc:mysql://192.168.251.19/db_infosistele", "sistelecom", "123456");//base dados no servidor do Recife
+			//return DriverManager.getConnection("jdbc:mysql://172.28.50.4/db_infosistele_homo", "root", "(C15c*)"); // base da dados em uma VM no servidor em Garanhuns
 		} catch (SQLException e) {
 			System.out.println("ERRO");
 			throw new RuntimeException(e);

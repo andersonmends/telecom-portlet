@@ -10,18 +10,29 @@ public class Log {
 	private String categoriaDiurnaOld;
 	private String categoriaNoturnaNew;
 	private String categoriaNoturnaOld;
-	private String tipoAparelhoNew;
-	private String tipoAparelhoOld;
+	private String tipoDeRamalNew;
+	private String tipoDeRamalOld;
 	private String divulgacaoNew;
 	private String divulgacaoOld;
-	private String localDeInstalacaoDiferenteDaOrigemNew;
-	private String localDeInstalacaoDiferenteDaOrigemOld;
+	private String nomenclaturaNew;
+	private String nomenclaturaOld;
 	private String compartilhadoComNew;
 	private String compartilhadoComOld;
-	private String faxNew;
-	private String faxOld;
 	private String observacoesNew;
 	private String observacoesOld;
+	
+	public String getNomenclaturaNew() {
+		return nomenclaturaNew;
+	}
+
+	public void setNomenclaturaNew(String nomenclaturaNew) {
+		this.nomenclaturaNew = nomenclaturaNew;
+	}
+
+	public String getNomenclaturaOld() {
+		return nomenclaturaOld;
+	}
+
 
 	public String getCategoriaDiurnaNew() {
 		return categoriaDiurnaNew;
@@ -39,20 +50,26 @@ public class Log {
 		this.categoriaDiurnaOld = categoriaOld;
 	}
 
-	public String getTipoAparelhoNew() {
-		return tipoAparelhoNew;
+	
+
+	public String getTipoDeRamalNew() {
+		return tipoDeRamalNew;
 	}
 
-	public void setTipoAparelhoNew(String tipoAparelhoNew) {
-		this.tipoAparelhoNew = tipoAparelhoNew;
+	public void setTipoDeRamalNew(String tipoDeRamalNew) {
+		this.tipoDeRamalNew = tipoDeRamalNew;
 	}
 
-	public String getTipoAparelhoOld() {
-		return tipoAparelhoOld;
+	public String getTipoDeRamalOld() {
+		return tipoDeRamalOld;
 	}
 
-	public void setTipoAparelhoOld(String tipoAparelhoOld) {
-		this.tipoAparelhoOld = tipoAparelhoOld;
+	public void setTipoDeRamalOld(String tipoDeRamalOld) {
+		this.tipoDeRamalOld = tipoDeRamalOld;
+	}
+
+	public void setNomenclaturaOld(String nomenclaturaOld) {
+		this.nomenclaturaOld = nomenclaturaOld;
 	}
 
 	public String getDivulgacaoNew() {
@@ -71,24 +88,7 @@ public class Log {
 		this.divulgacaoOld = divulgaçãoOld;
 	}
 
-	public String getLocalDeInstalacaoDiferenteDaOrigemNew() {
-		return localDeInstalacaoDiferenteDaOrigemNew;
-	}
-
-	public void setLocalDeInstalacaoDiferenteDaOrigemNew(
-			String localDeInstalacaoDiferenteDaOrigemNew) {
-		this.localDeInstalacaoDiferenteDaOrigemNew = localDeInstalacaoDiferenteDaOrigemNew;
-	}
-
-	public String getLocalDeInstalacaoDiferenteDaOrigemOld() {
-		return localDeInstalacaoDiferenteDaOrigemOld;
-	}
-
-	public void setLocalDeInstalacaoDiferenteDaOrigemOld(
-			String localDeInstalacaoDiferenteDaOrigemOld) {
-		this.localDeInstalacaoDiferenteDaOrigemOld = localDeInstalacaoDiferenteDaOrigemOld;
-	}
-
+	
 	public String getCompartilhadoComNew() {
 		return compartilhadoComNew;
 	}
@@ -103,22 +103,6 @@ public class Log {
 
 	public void setCompartilhadoComOld(String compartilhadoComOld) {
 		this.compartilhadoComOld = compartilhadoComOld;
-	}
-
-	public String getFaxNew() {
-		return faxNew;
-	}
-
-	public void setFaxNew(String faxNew) {
-		this.faxNew = faxNew;
-	}
-
-	public String getFaxOld() {
-		return faxOld;
-	}
-
-	public void setFaxOld(String faxOld) {
-		this.faxOld = faxOld;
 	}
 
 	public String getObservacoesNew() {

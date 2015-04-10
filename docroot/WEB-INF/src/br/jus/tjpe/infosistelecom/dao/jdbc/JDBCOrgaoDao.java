@@ -33,19 +33,14 @@ public class JDBCOrgaoDao implements OrgaoDao {
 			while (rs.next()) {
 
 				Orgao orgao = new Orgao();
-				orgao.setCentroDeCusto(Long.toString(rs
-						.getLong(("PK_ORGAO_CentroDeCusto"))));
+				orgao.setCentroDeCusto(rs.getString(("PK_ORGAO_CentroDeCusto")));
 				orgao.setLocalidade(rs.getString("ORGAO_NM_Localidade"));
-				orgao.setSubOrgao(rs
+				orgao.setSuborgao(rs
 						.getString("ORGAO_NM_Suborgao"));
 				orgao.setCentroDeCustoAntigo(Long.toString(rs
 						.getLong("ORGAO_ID_CentroDeCustoAntigo")));
-				//orgao.setComplemento(rs.getString("ORGAO_DS_Complemento"));
 				orgao.setCidade(rs.getString("ORGAO_NM_Cidade"));
-				orgao.setEndereco(rs.getString("ORGAO_NM_Endereco"));
-				//orgao.setNumero(rs.getString("ORGAO_NU_Numero"));
-				//orgao.setBairro(rs.getString("ORGAO_NM_Bairro"));
-				//orgao.setCep(rs.getString("ORGAO_NU_CEP"));
+				orgao.setEndereco(rs.getString("ORGAO_NM_Endereco"));		
 				System.out.println(orgao);
 				orgaos.add(orgao);
 
@@ -67,17 +62,13 @@ public class JDBCOrgaoDao implements OrgaoDao {
 			PreparedStatement prst = con
 					.prepareStatement("INSERT INTO ORGAO VALUES (?,?,?,?,?,?,?) ");
 
-			prst.setLong(1, Long.parseLong(c.getCentroDeCusto()));
+			prst.setString(1, c.getCentroDeCusto());
 			prst.setString(2, c.getLocalidade());
-			prst.setString(3, c.getSubOrgao());
+			prst.setString(3, c.getSuborgao());
 			prst.setString(4, c.getCentroDeCustoAntigo());
 			prst.setString(5, c.getPolo());
-			//prst.setString(6, c.getComplemento());
 			prst.setString(6, c.getCidade());
 			prst.setString(7, c.getEndereco());
-			//prst.setString(9, c.getNumero());
-			//prst.setString(10, c.getBairro());
-			//prst.setString(11, c.getCep());
 			prst.execute();
 			prst.close();
 
@@ -113,19 +104,15 @@ public class JDBCOrgaoDao implements OrgaoDao {
 
 			while (rs.next()) {
 
-				orgao.setCentroDeCusto(Long.toString(rs
-						.getLong(("PK_ORGAO_CentroDeCusto"))));
+				orgao.setCentroDeCusto(rs.getString(("PK_ORGAO_CentroDeCusto")));
 				orgao.setLocalidade(rs.getString("ORGAO_NM_Localidade"));
-				orgao.setSubOrgao(rs
+				orgao.setSuborgao(rs
 						.getString("ORGAO_NM_SubOrgao"));
 				orgao.setCentroDeCustoAntigo(Long.toString(rs
-						.getLong("ORGAO_ID_CentroCustoAntigo")));
-				//orgao.setComplemento(rs.getString("ORGAO_DS_Complemento"));
+						.getLong("ORGAO_ID_CentroDeCustoAntigo")));
 				orgao.setCidade(rs.getString("ORGAO_NM_Cidade"));
 				orgao.setEndereco(rs.getString("ORGAO_NM_Endereco"));
-				//orgao.setNumero(rs.getString("ORGAO_NU_Numero"));
-				//orgao.setBairro(rs.getString("ORGAO_NM_Bairro"));
-				//orgao.setCep(rs.getString("ORGAO_NU_CEP"));
+
 
 			}
 
@@ -143,7 +130,7 @@ public class JDBCOrgaoDao implements OrgaoDao {
 
 		try {
 			PreparedStatement prst = con
-					.prepareStatement("SELECT ORGAO_NM_Localidade FROM `ORGAO` Group by ORGAO_NM_Cidade ASC");
+					.prepareStatement("SELECT ORGAO_NM_Cidade FROM `ORGAO` Group by ORGAO_NM_Cidade ASC");
 
 			ResultSet rs = prst.executeQuery();
 

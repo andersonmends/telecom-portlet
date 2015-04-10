@@ -41,13 +41,26 @@
 				selectionMode="single" selection="#{consultaBean.selectRamal}"
 				rowKey="#{ramal.fone}" onRowSelectComplete="dlgEdit.show()"
 				paginatorPosition="bottom" paginatorAlwaysVisible="true"
-				scrollable="true" loadingMessage="Buscando..." pageLinks="31">
+				loadingMessage="Buscando..." pageLinks="31" scrollable="true"
+				style="width: 1150px">
 
 				<p:ajax event="rowSelect" update=":formPrincipal"
 					oncomplete="dlgEdit.show()" listener="#{consultaBean.onRowSelect}" />
 
+
+				<p:column filterBy="#{ramal.fone}" sortBy="#{ramal.fone} "
+					width="100">
+					<f:facet name="header">
+						<p:panelGrid columns="2" styleClass="semBorda">
+							<h:outputLabel value="Fone" style="margin-left:35px" />
+						</p:panelGrid>
+					</f:facet>
+					<h:outputText value="#{ramal.fone}" />
+				</p:column>
+
+
 				<p:column headerText="Cidade" filterBy="#{ramal.orgao.cidade}"
-					sortBy="#{ramal.orgao.cidade}" width="130">
+					sortBy="#{ramal.orgao.cidade}" width="100">
 
 					<f:facet name="header">
 						<p:panelGrid columns="2" styleClass="semBorda">
@@ -57,82 +70,87 @@
 					<h:outputText value="#{ramal.orgao.cidade}" />
 				</p:column>
 
-				<p:column headerText="Local" filterBy="#{ramal.orgao.localidade}"
-					sortBy="#{ramal.orgao.nome}" width="200">
+
+				<p:column headerText="Prédio" filterBy="#{ramal.orgao.suborgao}"
+					sortBy="#{ramal.orgao.suborgao}" width="200">
 
 					<f:facet name="header">
 						<p:panelGrid columns="2" styleClass="semBorda">
-							<h:outputLabel value="Local" style="margin-left:80px" />
+							<h:outputLabel value="Prédio" style="margin-left:70px" />
+						</p:panelGrid>
+					</f:facet>
+					<h:outputText value="#{ramal.orgao.suborgao}" />
+				</p:column>
+
+
+				<p:column headerText="Local" filterBy="#{ramal.orgao.localidade}"
+					sortBy="#{ramal.orgao.localidade}" width="400">
+
+					<f:facet name="header">
+						<p:panelGrid columns="2" styleClass="semBorda">
+							<h:outputLabel value="Local" style="margin-left:170px" />
 						</p:panelGrid>
 					</f:facet>
 					<h:outputText value="#{ramal.orgao.localidade}" />
 				</p:column>
 
-				<p:column filterBy="#{ramal.fone}" sortBy="#{ramal.fone} "
-					width="120">
-					<f:facet name="header">
-						<p:panelGrid columns="2" styleClass="semBorda">
-							<h:outputLabel value="Fone" style="margin-left:35px" />
-						</p:panelGrid>
-					</f:facet>
-					<h:outputText value="#{ramal.fone}" />
-				</p:column>
 
-				<p:column width="90">
-					<f:facet name="header">
-						<p:panelGrid columns="2" styleClass="semBorda">
-							<h:outputLabel value="Cat. D" />
-							<p:commandLink icon="ui-icon-info" type="button"
-								styleClass="ui-icon ui-icon-info" onclick="dlgCategoria.show();" />
-						</p:panelGrid>
-					</f:facet>
-					<h:outputText value="#{ramal.categoriaDiurna}" />
-				</p:column>
 
-				<p:column width="90">
-					<f:facet name="header">
-						<p:panelGrid columns="2" styleClass="semBorda">
-							<h:outputLabel value="Cat. N" />
-							<p:commandLink icon="ui-icon-info" type="button"
-								styleClass="ui-icon ui-icon-info" onclick="dlgCategoria.show();" />
-						</p:panelGrid>
-					</f:facet>
-					<h:outputText value="#{ramal.categoriaNoturna}" />
-				</p:column>
+				<!-- 				<p:column width="38"> -->
+				<!-- 					<f:facet name="header"> -->
+				<!-- 						<p:panelGrid columns="1" styleClass="semBorda"> -->
+				<!-- 							<h:outputLabel value="Cat. D" /> -->
+				<!-- 							<p:commandLink icon="ui-icon-info" type="button" -->
+				<!-- 								styleClass="ui-icon ui-icon-info" onclick="dlgCategoria.show();" style="margin-left:10px"/> -->
+				<!-- 						</p:panelGrid> -->
+				<!-- 					</f:facet> -->
+				<!-- 					<h:outputText value="#{ramal.categoriaDiurna}" /> -->
+				<!-- 				</p:column> -->
+
+				<!-- 				<p:column width="38"> -->
+				<!-- 					<f:facet name="header"> -->
+				<!-- 						<p:panelGrid columns="1" styleClass="semBorda"> -->
+				<!-- 							<h:outputLabel value="Cat. N" /> -->
+				<!-- 							<p:commandLink icon="ui-icon-info" type="button" -->
+				<!-- 								styleClass="ui-icon ui-icon-info" onclick="dlgCategoria.show();" style="margin-left:10px" /> -->
+				<!-- 						</p:panelGrid> -->
+				<!-- 					</f:facet> -->
+				<!-- 					<h:outputText value="#{ramal.categoriaNoturna}" /> -->
+				<!-- 				</p:column> -->
+
+				<!-- 				<p:column width="80"> -->
+				<!-- 					<f:facet name="header"> -->
+				<!-- 						<p:panelGrid columns="1" styleClass="semBorda"> -->
+				<!-- 							<h:outputLabel value="Tipo de Ramal" /> -->
+				<!-- 							<p:commandLink icon="ui-icon-info" type="button" -->
+				<!-- 								styleClass="ui-icon ui-icon-info" onclick="dlgAparelho.show();" style="margin-left:22px" /> -->
+				<!-- 						</p:panelGrid> -->
+				<!-- 					</f:facet> -->
+
+				<!-- 					<h:outputText value="#{ramal.tipoRamal}" /> -->
+				<!-- 				</p:column> -->
+
+				<!-- 				<p:column width="60"> -->
+
+				<!-- 					<f:facet name="header"> -->
+				<!-- 						<p:panelGrid columns="1" styleClass="semBorda"> -->
+				<!-- 							<h:outputLabel value="Divulgação" /> -->
+				<!-- 							<p:commandLink icon="ui-icon-info" type="button" -->
+				<!-- 								styleClass="ui-icon ui-icon-info" -->
+				<!-- 								onclick="dlgDivulgacao.show();" style="margin-left:22px"/> -->
+				<!-- 						</p:panelGrid> -->
+				<!-- 					</f:facet> -->
+
+				<!-- 					<h:outputText value="#{ramal.divulgacao}" /> -->
+
+				<!-- 				</p:column> -->
+
 
 				<p:column width="100">
-					<f:facet name="header">
-						<p:panelGrid columns="2" styleClass="semBorda">
-							<h:outputLabel value="T. Aparelho" />
-							<p:commandLink icon="ui-icon-info" type="button"
-								styleClass="ui-icon ui-icon-info" onclick="dlgAparelho.show();" />
-						</p:panelGrid>
-					</f:facet>
-
-					<h:outputText value="#{ramal.tipoRamal}" />
-				</p:column>
-
-				<p:column width="120">
 
 					<f:facet name="header">
-						<p:panelGrid columns="2" styleClass="semBorda">
-							<h:outputLabel value="T. Divulgação" />
-							<p:commandLink icon="ui-icon-info" type="button"
-								styleClass="ui-icon ui-icon-info"
-								onclick="dlgDivulgacao.show();" />
-						</p:panelGrid>
-					</f:facet>
-
-					<h:outputText value="#{ramal.divulgacao}" />
-
-				</p:column>
-
-
-				<p:column width="140">
-
-					<f:facet name="header">
-						<p:panelGrid columns="2" styleClass="semBorda">
-							<h:outputLabel value="Compart. com outro setor" />
+						<p:panelGrid columns="1" styleClass="semBorda">
+							<h:outputLabel value="Compartilhado" />
 						</p:panelGrid>
 					</f:facet>
 
@@ -142,8 +160,17 @@
 
 			</p:dataTable>
 
+			<!-- 
+__________________________________________________________________________________________________________________ 
+
+
+                              SESSÃO DO DIALOG DE EDITAR
+
+__________________________________________________________________________________________________________________
+-->
+
 			<p:dialog widgetVar="dlgEdit" id="dlgEdit" header="Editar"
-				height="670" width="720" modal="true" resizable="false">
+				height="720" width="720" modal="true" resizable="false">
 
 				<p:panelGrid id="pgridEdit" columns="2" styleClass="semBorda">
 
@@ -158,9 +185,13 @@
 						disabled="true" styleClass="larguraInput" />
 
 
-					<h:outputText value="Local" />
+					<h:outputText value="Endereço" />
 					<p:inputText value="#{consultaBean.selectRamal.orgao.endereco}"
 						disabled="true" styleClass="larguraInput" />
+
+					<h:outputText value="Localidade" />
+					<p:inputText value="#{consultaBean.selectRamal.orgao.localidade}"
+						styleClass="larguraInput" disabled="true" />
 
 
 					<h:outputText value="Polo" />
@@ -170,17 +201,29 @@
 					<h:outputText value="Fone" />
 					<p:inputText value="#{consultaBean.selectRamal.fone}"
 						disabled="true" styleClass="larguraInput" />
+						
+						<h:outputText value="Data de Ativação" />
+					<p:inputText value="#{consultaBean.selectRamal.dataDeAtivacao}"
+						disabled="true" styleClass="larguraInput" />
+								
+					<h:outputText value="Situação" />
+					<p:selectOneMenu style="width: 500px"
+						value="#{consultaBean.selectRamal.situacao}">
+						<f:selectItem itemLabel="#{consultaBean.selectRamal.situacao}" />
+						<f:selectItem itemLabel="Ativo" itemValue="Ativado" />
+						<f:selectItem itemLabel="Cancelado"	itemValue="Cancelado" />
+					</p:selectOneMenu>
 
 					<h:outputText value="Circuito" />
 					<p:inputText value="#{consultaBean.selectRamal.circuito}"
 						styleClass="larguraInput" />
 
-					<h:outputText value="Categoria" />
+					<h:outputText value="Categoria Diurna" />
 					<p:selectOneMenu style="width: 500px"
 						value="#{consultaBean.selectRamal.categoriaDiurna}">
 						<f:selectItem
 							itemLabel="#{consultaBean.selectRamal.categoriaDiurna}" />
-						<f:selectItem itemLabel="1" itemValue="1" id="cat1" />
+						<f:selectItem itemLabel="1" itemValue="1" />
 						<f:selectItem itemLabel="2" itemValue="2" />
 						<f:selectItem itemLabel="3" itemValue="3" />
 						<f:selectItem itemLabel="4" itemValue="4" />
@@ -193,12 +236,12 @@
 						<f:selectItem itemLabel="11" itemValue="11" />
 					</p:selectOneMenu>
 
-					<h:outputText value="Categoria" />
+					<h:outputText value="Categoria Noturna" />
 					<p:selectOneMenu style="width: 500px"
 						value="#{consultaBean.selectRamal.categoriaNoturna}">
 						<f:selectItem
 							itemLabel="#{consultaBean.selectRamal.categoriaNoturna}" />
-						<f:selectItem itemLabel="1" itemValue="1" id="cat1" />
+						<f:selectItem itemLabel="1" itemValue="1" />
 						<f:selectItem itemLabel="2" itemValue="2" />
 						<f:selectItem itemLabel="3" itemValue="3" />
 						<f:selectItem itemLabel="4" itemValue="4" />
@@ -211,22 +254,20 @@
 						<f:selectItem itemLabel="11" itemValue="11" />
 					</p:selectOneMenu>
 
-					<h:outputText value="Tipo do Aparelho" />
+					<h:outputText value="Tipo do Ramal" />
 					<p:selectOneMenu style="width: 500px"
-						value="#{consultaBean.selectRamal.tipoRamal}">
-						<f:selectItem itemLabel="#{consultaBean.selectRamal.tipoRamal}" />
+						value="#{consultaBean.selectRamal.tipoDeRamal}">
+						<f:selectItem itemLabel="#{consultaBean.selectRamal.tipoDeRamal}" />
 						<f:selectItem itemLabel="Analógico" itemValue="Analógico" />
 						<f:selectItem itemLabel="Digital Básico"
 							itemValue="Digital Básico" />
 					</p:selectOneMenu>
 
-					<h:outputText value="Usuário do Ramal" />
+					<h:outputText value="Nomenclatura" />
 					<p:inputText value="#{consultaBean.selectRamal.nomenclatura}"
 						styleClass="larguraInput" />
 
-					<h:outputText value="Localidade" />
-					<p:inputText value="#{consultaBean.selectRamal.orgao.localidade}"
-						styleClass="larguraInput" />
+
 
 					<h:outputText value="Compartilhado com" />
 					<p:inputText value="#{consultaBean.selectRamal.compartilhadoCom}"
@@ -236,7 +277,7 @@
 					<p:selectOneMenu style="width: 500px"
 						value="#{consultaBean.selectRamal.divulgacao}">
 						<f:selectItem itemLabel="#{consultaBean.selectRamal.divulgacao}" />
-						<f:selectItem itemLabel="Nao" itemValue="Nao" />
+						<f:selectItem itemLabel="Não" itemValue="Não" />
 						<f:selectItem itemLabel="Interno" itemValue="Interno" />
 						<f:selectItem itemLabel="Externo" itemValue="Externo" />
 					</p:selectOneMenu>
@@ -266,6 +307,17 @@
 				</p:panelGrid>
 
 			</p:dialog>
+
+
+			<!-- 
+____________________________________________________________________________________________________________________
+
+
+                  SESSÃO DO DIALOG DE INFORMAÇÕES
+
+_____________________________________________________________________________________________________________________
+-->
+
 
 			<p:dialog header="Categoria" widgetVar="dlgCategoria" height="220"
 				modal="true" resizable="false" id="dlgCategoria">

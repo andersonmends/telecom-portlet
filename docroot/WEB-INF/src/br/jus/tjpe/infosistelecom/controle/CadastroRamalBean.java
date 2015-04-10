@@ -84,15 +84,15 @@ public class CadastroRamalBean {
 		orgaos.clear();
 
 		OrgaoDao dao = OrgaoDaoFactory.createOrgaoDao();
-		ArrayList<Orgao> orgaosTemp = dao.listarTudo();
-
-		for (Orgao orgao : orgaosTemp) {
-
-			if (selectCidade.equals(orgao.getCidade())) {
-
-				this.orgaos.add(orgao.getLocalidade());
-			}
-		}
+//		ArrayList<Orgao> orgaosTemp = dao.listarTudo();
+//
+//		for (Orgao orgao : orgaosTemp) {
+//
+//			if (selectCidade.equals(orgao.getCidade())) {
+//
+//				this.orgaos.add(orgao.getLocalidade());
+//			}
+//		}
 
 		cidades = dao.listarCidades();
 
@@ -157,6 +157,7 @@ public class CadastroRamalBean {
 		selectCidade = "";
 		selectLocal = "";
 		orgaos.clear();
+		
 
 	}
 

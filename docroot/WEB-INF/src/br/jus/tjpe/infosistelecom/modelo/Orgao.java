@@ -10,10 +10,7 @@ public class Orgao {
 	private String polo;
 	private String cidade;
 	private String endereco;
-	//private String complemento;
-	//private String cep;
-	//private String numero;
-	//private String bairro;
+	
 	
 	public Orgao(){
 		
@@ -22,13 +19,10 @@ public class Orgao {
 		this.localidade = "";
 		this.suborgao = "";
 		this.cidade = "";
-		this.polo = "";
-		//this.complemento = "";
+		this.polo = "";	
 		this.endereco = "";
 		this.centroDeCusto = "";
-		//this.cep = "";
-		//this.numero = "";
-		//this.bairro = "";	
+		
 	}
 
 	public String getCentroDeCusto() {
@@ -49,11 +43,11 @@ public class Orgao {
 	public void setLocalidade(String nome) {
 		this.localidade = nome;
 	}
-	public String getSubOrgao() {
+	public String getSuborgao() {
 		return suborgao;
 	}
-	public void setSubOrgao(String nomeOrgaoSuperior) {
-		this.suborgao = nomeOrgaoSuperior;
+	public void setSuborgao(String Suborgao) {
+		this.suborgao = Suborgao;
 	}
 	public String getCidade() {
 		return cidade;
@@ -67,37 +61,12 @@ public class Orgao {
 	public void setPolo(String regiao) {
 		this.polo = regiao;
 	}
-//	public String getComplemento() {
-//		return complemento;
-//	}
-//	public void setComplemento(String complemento) {
-//		this.complemento = complemento;
-//	}
+
 	public String getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-//	public String getCep() {
-//		return cep;
-//	}
-//	public void setCep(String cep) {
-//		this.cep = cep;
-//	}
-//	public String getNumero() {
-//		return numero;
-//	}
-//	public void setNumero(String numero) {
-//		this.numero = numero;
-//	}
-//	public String getBairro() {
-//		return bairro;
-//	}
-//	public void setBairro(String bairro) {
-//		this.bairro = bairro;
-//	}
-//	
-	
 
 }
