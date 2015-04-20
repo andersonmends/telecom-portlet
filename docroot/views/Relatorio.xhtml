@@ -1,23 +1,109 @@
 <?xml version="1.0"?>
-<f:view
-	xmlns="http://www.w3.org/1999/xhtml"
+<f:view xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 	<h:head>
+		<style>
+.semBorda {
+	border: none !important;
+	background: none !important;
+}
 
-		
+.semB tr, .semB td {
+	border: none !important;
+	background: none !important;
+}
+
+.larguraPanelGrid {
+	width: 150px
+}
+
+.larguraInput {
+	width: 470px
+}
+
+.ui-datatable, .ui-inputText {
+	font-size: 10px !important;
+}
+</style>
+
 
 	</h:head>
-
 	<h:body>
+		<h:form id="form">
+			<p:layout style="min-width:1050px;height:700px" styleClass="semBorda">
+				<p:layoutUnit position="west" size="900" minSize="40" maxSize="310"
+					styleClass="semBorda">
 
-	ksjfgahsasokjngfcg hwgcrnhduveoizd ulkxh
+					<p:panelGrid columns="2" style="width:300px">
+						<f:facet name="header">
+							<h:outputText value="Campos" />
+						</f:facet>
+
+						<h:outputText value="Cidade" />
+						<p:selectCheckboxMenu value="#{relatorioBean.selectedCidades}"
+							label="Cidades" filter="true">
+							<f:selectItems value="#{relatorioBean.cidades}" />
+						</p:selectCheckboxMenu>
+
+						<!-- 							<h:outputText value="Ramal" /> -->
+						<!-- 							<p:selectBooleanCheckbox value="" /> -->
+
+						<!-- 							<h:outputText value="Tipo de Ramal" /> -->
+						<!-- 							<p:selectBooleanCheckbox value="" /> -->
+
+						<!-- 							<h:outputText value="Suborgao" /> -->
+						<!-- 							<p:selectBooleanCheckbox value="" /> -->
+
+						<!-- 							<h:outputText value="Situação" /> -->
+						<!-- 							<p:selectBooleanCheckbox value="" /> -->
+
+						<h:outputText value="Polo" />
+						<p:selectBooleanCheckbox value="#{relatorioBean.polo}" />
+
+						<!-- 							<h:outputText value="Categoria Diurna" /> -->
+						<!-- 							<p:selectBooleanCheckbox value="" /> -->
+
+						<!-- 							<h:outputText value="Categoria Noturna" /> -->
+						<!-- 							<p:selectBooleanCheckbox value="" /> -->
+
+						<h:outputText value="Teste" />
+						<p:inputText value="#{relatorioBean.teste}" />
+					</p:panelGrid>
+
+
+					<p:panelGrid columns="1" style="margin-left:200px; margin-top:10px">
+
+						<p:commandButton action="#{relatorioBean.montarRaiz}"
+							value="Consultar" update="form"  ajax="true" styleClass="semB"/>
+
+
+
+					</p:panelGrid>
+
+
+				</p:layoutUnit>
+
+
+				<p:layoutUnit position="center" styleClass="semBorda">
+
+					<p:treeTable value="#{relatorioBean.ramais}" var="ramal" >
+						<f:facet name="header">
+            Document Viewer
+        </f:facet>
+						<p:column headerText="Name">
+							<h:outputText value="#{ramal.fone}" />
+						</p:column>
+
+
+					</p:treeTable>
+
+				</p:layoutUnit>
+			</p:layout>
+		</h:form>
+
 	</h:body>
 </f:view>
-
-
-
-

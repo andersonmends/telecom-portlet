@@ -14,11 +14,11 @@
 }
 
 .larguraPanelGrid {
-	width: 100px
+	width: 150px
 }
 
 .larguraInput {
-	width: 500px
+	width: 470px
 }
 
 .ui-datatable, .ui-inputText {
@@ -94,6 +94,18 @@
 					<h:outputText value="#{ramal.orgao.localidade}" />
 				</p:column>
 
+				<p:column width="100">
+
+					<f:facet name="header">
+						<p:panelGrid columns="1" styleClass="semBorda">
+							<h:outputLabel value="Nomenclatura" />
+						</p:panelGrid>
+					</f:facet>
+
+					<h:outputText value="#{ramal.nomenclatura}" />
+
+				</p:column>
+
 
 
 				<!-- 				<p:column width="38"> -->
@@ -154,7 +166,7 @@
 						</p:panelGrid>
 					</f:facet>
 
-					<h:outputText value="" />
+					<h:outputText value="#{ramal.compartilhadoCom}" />
 
 				</p:column>
 
@@ -170,7 +182,7 @@ ________________________________________________________________________________
 -->
 
 			<p:dialog widgetVar="dlgEdit" id="dlgEdit" header="Editar"
-				height="720" width="720" modal="true" resizable="false">
+				height="750" width="720" modal="true" resizable="false">
 
 				<p:panelGrid id="pgridEdit" columns="2" styleClass="semBorda">
 
@@ -179,6 +191,11 @@ ________________________________________________________________________________
 						value="#{consultaBean.selectRamal.orgao.centroDeCusto}"
 						disabled="true" styleClass="larguraInput" />
 
+
+					<h:outputText value="Centro de Custo Antigo" />
+					<p:inputText
+						value="#{consultaBean.selectRamal.orgao.centroDeCustoAntigo}"
+						disabled="true" styleClass="larguraInput" />
 
 					<h:outputText value="Cidade" />
 					<p:inputText value="#{consultaBean.selectRamal.orgao.cidade}"
@@ -201,17 +218,17 @@ ________________________________________________________________________________
 					<h:outputText value="Fone" />
 					<p:inputText value="#{consultaBean.selectRamal.fone}"
 						disabled="true" styleClass="larguraInput" />
-						
-						<h:outputText value="Data de Ativação" />
+
+					<h:outputText value="Data de Ativação" />
 					<p:inputText value="#{consultaBean.selectRamal.dataDeAtivacao}"
 						disabled="true" styleClass="larguraInput" />
-								
+
 					<h:outputText value="Situação" />
-					<p:selectOneMenu style="width: 500px"
+					<p:selectOneMenu style="width: 470px"
 						value="#{consultaBean.selectRamal.situacao}">
 						<f:selectItem itemLabel="#{consultaBean.selectRamal.situacao}" />
 						<f:selectItem itemLabel="Ativo" itemValue="Ativado" />
-						<f:selectItem itemLabel="Cancelado"	itemValue="Cancelado" />
+						<f:selectItem itemLabel="Cancelado" itemValue="Cancelado" />
 					</p:selectOneMenu>
 
 					<h:outputText value="Circuito" />
@@ -219,7 +236,7 @@ ________________________________________________________________________________
 						styleClass="larguraInput" />
 
 					<h:outputText value="Categoria Diurna" />
-					<p:selectOneMenu style="width: 500px"
+					<p:selectOneMenu style="width: 470px"
 						value="#{consultaBean.selectRamal.categoriaDiurna}">
 						<f:selectItem
 							itemLabel="#{consultaBean.selectRamal.categoriaDiurna}" />
@@ -237,7 +254,7 @@ ________________________________________________________________________________
 					</p:selectOneMenu>
 
 					<h:outputText value="Categoria Noturna" />
-					<p:selectOneMenu style="width: 500px"
+					<p:selectOneMenu style="width: 470px"
 						value="#{consultaBean.selectRamal.categoriaNoturna}">
 						<f:selectItem
 							itemLabel="#{consultaBean.selectRamal.categoriaNoturna}" />
@@ -255,7 +272,7 @@ ________________________________________________________________________________
 					</p:selectOneMenu>
 
 					<h:outputText value="Tipo do Ramal" />
-					<p:selectOneMenu style="width: 500px"
+					<p:selectOneMenu style="width: 470px"
 						value="#{consultaBean.selectRamal.tipoDeRamal}">
 						<f:selectItem itemLabel="#{consultaBean.selectRamal.tipoDeRamal}" />
 						<f:selectItem itemLabel="Analógico" itemValue="Analógico" />
@@ -267,14 +284,12 @@ ________________________________________________________________________________
 					<p:inputText value="#{consultaBean.selectRamal.nomenclatura}"
 						styleClass="larguraInput" />
 
-
-
 					<h:outputText value="Compartilhado com" />
 					<p:inputText value="#{consultaBean.selectRamal.compartilhadoCom}"
 						styleClass="larguraInput" />
 
 					<h:outputText value="Tipo de Divulgação" />
-					<p:selectOneMenu style="width: 500px"
+					<p:selectOneMenu style="width: 470px"
 						value="#{consultaBean.selectRamal.divulgacao}">
 						<f:selectItem itemLabel="#{consultaBean.selectRamal.divulgacao}" />
 						<f:selectItem itemLabel="Não" itemValue="Não" />
@@ -421,7 +436,3 @@ ________________________________________________________________________________
 		</h:form>
 	</h:body>
 </f:view>
-
-
-
-
