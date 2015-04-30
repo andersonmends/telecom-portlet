@@ -27,8 +27,6 @@ public class RenderizarBean {
 
 		System.out.println(portalPageName + ".xhtml");
 		
-
-		
 		return portalPageName + ".xhtml";
 		
 		

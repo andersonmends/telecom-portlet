@@ -6,6 +6,7 @@ import br.jus.tjpe.infosistelecom.factory.OrgaoDaoFactory;
 import br.jus.tjpe.infosistelecom.factory.RamalDaoFactory;
 import br.jus.tjpe.infosistelecom.modelo.Ramal;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
@@ -14,17 +15,19 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import org.primefaces.event.NodeCollapseEvent;
+import org.primefaces.event.NodeExpandEvent;
+import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class RelatorioBean {
 
 	private ArrayList<Ramal> ramais;
 	private ArrayList<String> cidades;
 	private String[] selectedCidades;
-	
-	private TreeNode raiz;
+	private TreeNode root = new DefaultTreeNode("Root Node", null);; 
 	private boolean polo;
 	private String teste;
 
@@ -61,11 +64,11 @@ public class RelatorioBean {
 	}
 
 	public TreeNode getRaiz() {
-		return raiz;
+		return root;
 	}
 
 	public void setRaiz(TreeNode raiz) {
-		this.raiz = raiz;
+		this.root = raiz;
 	}
 
 	public ArrayList<Ramal> getRamais() {
@@ -86,45 +89,49 @@ public class RelatorioBean {
 //		ramais = new ArrayList<Ramal>();
 //		RamalDao daoRamal = RamalDaoFactory.createRamalDao();
 //		ramais = daoRamal.listarTudo();
+		
+//		DefaultTreeNode no = new DefaultTreeNode("hgshdgs", this.root);
+//		DefaultTreeNode no1 = new DefaultTreeNode("hgssdsdshdgs", this.root);
+//		DefaultTreeNode no2 = new DefaultTreeNode("hgshdnjhsdghjdagjhggs", no1);
+//		DefaultTreeNode no3 = new DefaultTreeNode("hgshdnjhsdghjdagjhggs", this.root);
+//		DefaultTreeNode no24= new DefaultTreeNode("hgshdnjhsdghjdagjhggs", no3);
+		
+	
 
 	}
 
 	public void montarRaiz() {
 
 		//System.out.println("diuyfuidyfuidyfuidy");
-		// raiz = new DefaultTreeNode("Raiz", null);
-		// System.out.println(raiz);
-		// // System.out.println(selectedCidades.length);
-		// System.out.println("RE");
-		// DefaultTreeNode no = new DefaultTreeNode("hgshdgs", raiz);
-		// DefaultTreeNode no1 = new DefaultTreeNode("hgshdgs", no);
-		// DefaultTreeNode no = new DefaultTreeNode(cidade, raiz);
-		// DefaultTreeNode no1 = new DefaultTreeNode(cidade, no);
-		// for (String cidade : selectedCidades) {
-		// System.out.println(cidade);
-		//
-		// // DefaultTreeNode no = new DefaultTreeNode(cidade, raiz);
-		// DefaultTreeNode no1 = new DefaultTreeNode(cidade, no);
-		// System.out.println(no);
-		// System.out.println(no1);
-		// }
 
-		// System.out.println(no);
-		// System.out.println(no1);
-		//
-		
-		ramais = new ArrayList<Ramal>();
+//		root = new DefaultTreeNode("Root Node", null);
+//		ramais = new ArrayList<Ramal>();
 //		RamalDao daoRamal = RamalDaoFactory.createRamalDao();
 //		ramais = daoRamal.listarTudo();
 		
 		
+//		DefaultTreeNode no = new DefaultTreeNode(ramais.get(0), raiz); 
+//		DefaultTreeNode no1 = new DefaultTreeNode(ramais.get(1), raiz); 
+//		
+//		for (Ramal ramal : ramais) {
+//			
+//			new DefaultTreeNode(ramal, this.root);
+//			
+//		}
+//	
+		DefaultTreeNode no = new DefaultTreeNode("hgshdgs", this.root);
+		DefaultTreeNode no1 = new DefaultTreeNode("hgssdsdshdgs", this.root);
+		DefaultTreeNode no2 = new DefaultTreeNode("hgshdnjhsdghjdagjhggs", no1);
+		DefaultTreeNode no3 = new DefaultTreeNode("hgshdnjhsdghjdagjhggs", this.root);
+		DefaultTreeNode no24= new DefaultTreeNode("hgshdnjhsdghjdagjhggs", no3);
+
 		
-		System.out.println(selectedCidades);
-		System.out.println(selectedCidades[0]);
-		System.out.println(selectedCidades[1]);
-		System.out.println(teste);
-		System.out.println(polo);
+//		System.out.println(selectedCidades[0]);
+//		System.out.println(selectedCidades[1]);
+
 		
 	}
+	
+
 
 }

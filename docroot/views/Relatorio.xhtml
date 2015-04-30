@@ -77,9 +77,8 @@
 
 					<p:panelGrid columns="1" style="margin-left:200px; margin-top:10px">
 
-						<p:commandButton action="#{relatorioBean.montarRaiz}"
-							value="Consultar" update="form"  ajax="true" styleClass="semB"/>
-
+						<p:commandButton actionListener="#{relatorioBean.montarRaiz}"
+							value="Consultar" update="tree" styleClass="semB"  />
 
 
 					</p:panelGrid>
@@ -87,15 +86,12 @@
 
 				</p:layoutUnit>
 
+				<p:layoutUnit position="center" styleClass="">
 
-				<p:layoutUnit position="center" styleClass="semBorda">
+					<p:treeTable value="#{relatorioBean.raiz}" var="ramal" id="tree">
 
-					<p:treeTable value="#{relatorioBean.ramais}" var="ramal" >
-						<f:facet name="header">
-            Document Viewer
-        </f:facet>
 						<p:column headerText="Name">
-							<h:outputText value="#{ramal.fone}" />
+							<h:outputText value="#{ramal}" />
 						</p:column>
 
 
